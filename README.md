@@ -92,3 +92,19 @@ Tip: generate hash quickly with Node:
 ```bash
 node -e "console.log(require('bcryptjs').hashSync('YourStrongPassword123', 12))"
 ```
+
+## Payment Webhook Security
+
+`/api/payments/click`:
+- Verifies Click callback signature (`sign_string`) using `CLICK_SECRET_KEY` (+ `CLICK_SERVICE_ID` check)
+- Rejects stale callbacks by `sign_time` with configurable `CLICK_MAX_SKEW_SECONDS`
+- Optional source IP whitelist via `CLICK_ALLOWED_IPS`
+
+`/api/payments/payme`:
+- Supports Payme JSON-RPC methods (`CheckPerformTransaction`, `CreateTransaction`, `PerformTransaction`, `CancelTransaction`, `CheckTransaction`)
+- Verifies `Authorization: Basic ...` against `PAYME_MERCHANT_LOGIN` and `PAYME_SECRET_KEY`
+- Optional source IP whitelist via `PAYME_ALLOWED_IPS`
+
+Note:
+- In `NODE_ENV=production`, invalid or unsigned webhook payloads are rejected.
+- In development, a simple mock payload format is still accepted for quick local testing.
