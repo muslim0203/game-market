@@ -1,4 +1,4 @@
-import { Status } from "@prisma/client";
+import { OrderStatus, Status } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -35,29 +35,32 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "You cannot buy your own listing" }, { status: 400 });
   }
 
+  const existingOpenOrder = await prisma.order.findFirst({
+    where: {
+      listingId: listing.id,
+      status: { in: [OrderStatus.PENDING, OrderStatus.DELIVERED] }
+    },
+    select: { id: true }
+  });
+
+  if (existingOpenOrder) {
+    return NextResponse.json({ error: "Listing already has an active order" }, { status: 409 });
+  }
+
   const amount = Number(listing.price);
   const commission = calculateCommission(amount, listing.seller.sellerTier);
 
-  const order = await prisma.$transaction(async (tx) => {
-    const created = await tx.order.create({
-      data: {
-        listingId: listing.id,
-        buyerId: session.user.id,
-        sellerId: listing.sellerId,
-        amount,
-        commission: commission.commission,
-        payoutAmount: commission.payout,
-        credentials: parsed.data.credentials ? encryptValue(parsed.data.credentials) : undefined,
-        escrowReleaseAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
-      }
-    });
-
-    await tx.listing.update({
-      where: { id: listing.id },
-      data: { status: Status.SOLD }
-    });
-
-    return created;
+  const order = await prisma.order.create({
+    data: {
+      listingId: listing.id,
+      buyerId: session.user.id,
+      sellerId: listing.sellerId,
+      amount,
+      commission: commission.commission,
+      payoutAmount: commission.payout,
+      credentials: parsed.data.credentials ? encryptValue(parsed.data.credentials) : undefined,
+      escrowReleaseAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+    }
   });
 
   return NextResponse.json({ data: order }, { status: 201 });

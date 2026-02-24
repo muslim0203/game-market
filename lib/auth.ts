@@ -11,7 +11,7 @@ import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "@/lib/db";
 import { loginSchema } from "@/lib/validations";
 
-const providers = [];
+const providers: NextAuthOptions["providers"] = [];
 
 if (process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET) {
   providers.push(

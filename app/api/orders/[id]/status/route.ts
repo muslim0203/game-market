@@ -44,9 +44,12 @@ export async function PUT(request: Request, { params }: Params) {
   }
 
   const target = parsed.data.status;
+  const escrowExpired = order.escrowReleaseAt ? order.escrowReleaseAt.getTime() <= Date.now() : false;
 
   if (target === OrderStatus.COMPLETED && !isBuyer && !isAdmin) {
-    return NextResponse.json({ error: "Only buyer can complete an order" }, { status: 403 });
+    if (!(isSeller && order.status === OrderStatus.DELIVERED && escrowExpired)) {
+      return NextResponse.json({ error: "Only buyer can complete before escrow timeout" }, { status: 403 });
+    }
   }
 
   if (target === OrderStatus.DELIVERED && !isSeller && !isAdmin) {

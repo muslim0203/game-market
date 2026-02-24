@@ -21,7 +21,8 @@ export const listingSchema = z.object({
   category: z.nativeEnum(Category),
   game: z.string().min(2).max(80),
   platform: z.string().min(2).max(40),
-  images: z.array(imageUrlSchema).min(1).max(8)
+  images: z.array(imageUrlSchema).min(1).max(8),
+  tosCompliant: z.literal(true)
 });
 
 export const listingUpdateSchema = listingSchema.partial();

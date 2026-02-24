@@ -101,6 +101,7 @@ model Order {
   credentials     String?
   escrowReleaseAt DateTime?
   stripeCheckoutId String?
+  stripePaymentIntentId String? @unique
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
   review          Review?
@@ -142,6 +143,7 @@ model ChatMessage {
 }
 
 model Account {
+  id                String  @id @default(cuid())
   userId            String
   type              String
   provider          String
@@ -156,10 +158,11 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@id([provider, providerAccountId])
+  @@unique([provider, providerAccountId])
 }
 
 model Session {
+  id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime

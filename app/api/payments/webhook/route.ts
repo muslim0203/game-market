@@ -19,7 +19,15 @@ export async function POST(request: Request) {
   }
 
   const payload = await request.text();
-  const stripe = getStripeClient();
+  let stripe;
+  try {
+    stripe = getStripeClient();
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Missing STRIPE_SECRET_KEY" },
+      { status: 500 }
+    );
+  }
 
   let event: Stripe.Event;
 
@@ -35,33 +43,45 @@ export async function POST(request: Request) {
   if (event.type === "checkout.session.completed") {
     const session = event.data.object as Stripe.Checkout.Session;
     const orderId = session.metadata?.orderId;
+    const paymentIntentId = typeof session.payment_intent === "string" ? session.payment_intent : null;
 
     if (orderId) {
-      await prisma.order.update({
+      const order = await prisma.order.findUnique({
         where: { id: orderId },
-        data: {
-          status: OrderStatus.PENDING,
-          stripeCheckoutId: session.id,
-          escrowReleaseAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
-        }
+        select: { listingId: true }
       });
+
+      if (order) {
+        await prisma.$transaction([
+          prisma.order.update({
+            where: { id: orderId },
+            data: {
+              status: OrderStatus.PENDING,
+              stripeCheckoutId: session.id,
+              stripePaymentIntentId: paymentIntentId,
+              escrowReleaseAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+            }
+          }),
+          prisma.listing.update({
+            where: { id: order.listingId },
+            data: { status: "SOLD" }
+          })
+        ]);
+      }
     }
   }
 
   if (event.type === "charge.refunded") {
     const charge = event.data.object as Stripe.Charge;
 
-    if (charge.payment_intent) {
+    if (typeof charge.payment_intent === "string") {
       const checkout = await prisma.order.findFirst({
         where: {
-          stripeCheckoutId: {
-            not: null
-          }
+          stripePaymentIntentId: charge.payment_intent
         },
         select: {
           id: true,
-          listingId: true,
-          stripeCheckoutId: true
+          listingId: true
         }
       });
 

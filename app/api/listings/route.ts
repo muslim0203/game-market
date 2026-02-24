@@ -1,4 +1,4 @@
-import { Status } from "@prisma/client";
+import { Category, Prisma, Status } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
@@ -9,17 +9,21 @@ import { listingSchema } from "@/lib/validations";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
-  const page = Number(url.searchParams.get("page") || "1");
-  const limit = Number(url.searchParams.get("limit") || "20");
-  const category = url.searchParams.get("category") || undefined;
+  const page = Math.max(Number(url.searchParams.get("page") || "1") || 1, 1);
+  const limit = Math.min(Math.max(Number(url.searchParams.get("limit") || "20") || 20, 1), 100);
+  const rawCategory = url.searchParams.get("category");
+  const category =
+    rawCategory && Object.values(Category).includes(rawCategory as Category)
+      ? (rawCategory as Category)
+      : undefined;
   const game = url.searchParams.get("game") || undefined;
   const platform = url.searchParams.get("platform") || undefined;
   const q = url.searchParams.get("q") || undefined;
   const sort = url.searchParams.get("sort") || "newest";
 
-  const where = {
+  const where: Prisma.ListingWhereInput = {
     status: Status.ACTIVE,
-    ...(category ? { category: category as never } : {}),
+    ...(category ? { category } : {}),
     ...(game ? { game: { contains: game, mode: "insensitive" as const } } : {}),
     ...(platform ? { platform: { contains: platform, mode: "insensitive" as const } } : {}),
     ...(q
