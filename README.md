@@ -50,3 +50,4 @@ npm run dev
 ## Important Compliance Note
 
 Only allow listings compliant with game publishers' Terms of Service. Accounts/items that violate ToS should be moderated and suspended.
+# game-market
