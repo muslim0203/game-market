@@ -5,6 +5,8 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { prisma } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 const featuredNames = [
   "ChatGPT Plus",
   "Claude Pro",

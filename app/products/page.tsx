@@ -4,6 +4,8 @@ import ProductFilter from "@/components/products/ProductFilter";
 import ProductGrid from "@/components/products/ProductGrid";
 import { prisma } from "@/lib/db";
 
+export const dynamic = "force-dynamic";
+
 type PageProps = {
   searchParams: {
     q?: string;
