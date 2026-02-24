@@ -8,8 +8,8 @@ import Navbar from "@/components/layout/Navbar";
 import Providers from "./providers";
 
 export const metadata: Metadata = {
-  title: "GameMarket",
-  description: "Secure game account, currency, and item marketplace"
+  title: "DigitalHub",
+  description: "Admin-only premium subscription accounts shop"
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

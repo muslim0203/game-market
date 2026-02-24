@@ -2,32 +2,28 @@ import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-const protectedPaths = ["/sell", "/dashboard", "/orders", "/chat", "/admin"];
+const adminProtectedPaths = ["/admin/dashboard", "/admin/products", "/admin/orders", "/admin/accounts"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  if (!protectedPaths.some((path) => pathname.startsWith(path))) {
+  if (!adminProtectedPaths.some((path) => pathname.startsWith(path))) {
     return NextResponse.next();
   }
 
   const token = await getToken({ req: request, secret: process.env.NEXTAUTH_SECRET });
 
-  if (!token) {
+  if (!token?.userId || token.role !== "ADMIN") {
     const url = request.nextUrl.clone();
-    url.pathname = "/auth/signin";
+    url.pathname = "/admin";
     url.searchParams.set("callbackUrl", pathname);
 
     return NextResponse.redirect(url);
-  }
-
-  if (pathname.startsWith("/admin") && token.role !== "ADMIN") {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/sell/:path*", "/dashboard/:path*", "/orders/:path*", "/chat/:path*", "/admin/:path*"]
+  matcher: ["/admin/dashboard/:path*", "/admin/products/:path*", "/admin/orders/:path*", "/admin/accounts/:path*"]
 };

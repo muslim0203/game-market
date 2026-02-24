@@ -1,47 +1,49 @@
-import { Category, OrderStatus } from "@prisma/client";
+import { OrderStatus } from "@prisma/client";
 import { z } from "zod";
 
-const imageUrlSchema = z.string().url().max(500);
-
-export const registerSchema = z.object({
-  username: z.string().min(3).max(24).regex(/^[a-zA-Z0-9_]+$/),
+export const adminLoginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8).max(128)
 });
 
-export const loginSchema = z.object({
-  email: z.string().email(),
-  password: z.string().min(8)
+const categorySchema = z.string().min(2).max(60);
+
+export const productSchema = z.object({
+  name: z.string().min(2).max(120),
+  slug: z.string().min(2).max(150).regex(/^[a-z0-9-]+$/),
+  description: z.string().min(10).max(4000),
+  logo: z.string().url().max(500),
+  category: categorySchema,
+  price: z.number().positive().max(100_000_000),
+  currency: z.string().min(3).max(6).default("UZS"),
+  duration: z.string().min(2).max(40),
+  isActive: z.boolean().optional().default(true)
 });
 
-export const listingSchema = z.object({
-  title: z.string().min(4).max(120),
-  description: z.string().min(20).max(5000),
-  price: z.number().positive().max(500000),
-  category: z.nativeEnum(Category),
-  game: z.string().min(2).max(80),
-  platform: z.string().min(2).max(40),
-  images: z.array(imageUrlSchema).min(1).max(8),
-  tosCompliant: z.literal(true)
+export const productUpdateSchema = productSchema.partial();
+
+export const createOrderSchema = z.object({
+  productId: z.string().cuid(),
+  buyerEmail: z.string().email(),
+  buyerName: z.string().min(2).max(80).optional(),
+  paymentMethod: z.enum(["CLICK", "PAYME", "STRIPE", "CRYPTO"])
 });
 
-export const listingUpdateSchema = listingSchema.partial();
-
-export const orderSchema = z.object({
-  listingId: z.string().cuid(),
-  credentials: z.string().min(2).max(5000).optional()
+export const paymentWebhookSchema = z.object({
+  orderId: z.string().uuid(),
+  paymentId: z.string().min(3).max(120),
+  status: z.enum(["PAID", "FAILED"]).default("PAID")
 });
 
-export const orderStatusSchema = z.object({
+export const updateOrderStatusSchema = z.object({
   status: z.nativeEnum(OrderStatus)
 });
 
-export const reviewSchema = z.object({
-  orderId: z.string().cuid(),
-  rating: z.number().int().min(1).max(5),
-  comment: z.string().min(3).max(1000)
+export const deliverOrderSchema = z.object({
+  force: z.boolean().optional().default(false)
 });
 
-export const checkoutSchema = z.object({
-  orderId: z.string().cuid()
+export const bulkAccountsSchema = z.object({
+  productId: z.string().cuid(),
+  csv: z.string().min(5).max(1_000_000)
 });

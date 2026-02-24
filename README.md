@@ -1,26 +1,58 @@
-# GameMarket
+# DigitalHub
 
-Full-stack marketplace MVP for ToS-compliant game asset trading.
+Admin-only digital subscription accounts store (1shop-style): ChatGPT Plus, Gemini, Claude, Canva Pro, CapCut, Adobe va boshqa premium xizmatlar.
 
 ## Stack
 
 - Next.js 14 + TypeScript + TailwindCSS
 - PostgreSQL + Prisma ORM
-- NextAuth.js (Credentials, Google, Discord, Email magic link)
-- Stripe checkout + escrow flow
-- AES-256-GCM encryption for order credentials
+- NextAuth.js (credentials, admin-only)
+- Nodemailer (email delivery)
+- AES-256-GCM encrypted credential storage
 
-## Features Implemented
+## Core Model
 
-- Auth routes: `/api/auth/register`, `/api/auth/login`, NextAuth at `/api/auth/[...nextauth]`
-- Listings CRUD routes and UI pages
-- Escrow-aware order creation and status transitions
-- Review system with seller rating aggregation
-- Stripe checkout + webhook endpoint
-- Dashboard, profile, orders, chat, and admin pages
-- Rate limiting + zod validation + input sanitization
+- `Product` — subscription products (price, duration, stock, active)
+- `Account` — encrypted login/password pool for each product
+- `Order` — UUID-based order lifecycle (`PENDING -> PAID -> DELIVERED`)
+- `Admin` — dashboard credentials
 
-## Run Locally
+## Main Routes
+
+Public:
+- `/` home
+- `/products`
+- `/products/[slug]`
+- `/checkout/[id]`
+- `/order/[id]`
+
+Admin:
+- `/admin` (login)
+- `/admin/dashboard`
+- `/admin/products`
+- `/admin/orders`
+- `/admin/accounts`
+
+## API
+
+Public:
+- `GET /api/products`
+- `GET /api/products/[slug]`
+- `POST /api/orders`
+- `GET /api/orders/[id]`
+- `POST /api/payments/click`
+- `POST /api/payments/payme`
+
+Admin:
+- `GET /api/admin/dashboard`
+- `GET/POST /api/admin/products`
+- `PUT/DELETE /api/admin/products/[id]`
+- `POST /api/admin/accounts/bulk`
+- `GET /api/admin/orders`
+- `PUT /api/admin/orders/[id]`
+- `POST /api/admin/orders/[id]/deliver`
+
+## Local Run
 
 1. Install dependencies:
 
@@ -28,16 +60,15 @@ Full-stack marketplace MVP for ToS-compliant game asset trading.
 npm install
 ```
 
-2. Create env file:
+2. Copy env and set values:
 
 ```bash
 cp .env.example .env
 ```
 
-3. Generate Prisma client and run migration:
+3. Run prisma migrations:
 
 ```bash
-npm run prisma:generate
 npm run prisma:migrate
 ```
 
@@ -47,7 +78,17 @@ npm run prisma:migrate
 npm run dev
 ```
 
-## Important Compliance Note
+## Admin Setup
 
-Only allow listings compliant with game publishers' Terms of Service. Accounts/items that violate ToS should be moderated and suspended.
-# game-market
+Create an admin row manually (password must be bcrypt hash):
+
+```sql
+INSERT INTO "Admin" (email, password)
+VALUES ('admin@example.com', '$2b$12$REPLACE_WITH_BCRYPT_HASH');
+```
+
+Tip: generate hash quickly with Node:
+
+```bash
+node -e "console.log(require('bcryptjs').hashSync('YourStrongPassword123', 12))"
+```

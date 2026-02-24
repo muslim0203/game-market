@@ -1,67 +1,60 @@
-import { OrderStatus, Status } from "@prisma/client";
-import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-import { authOptions } from "@/lib/auth";
-import { calculateCommission } from "@/lib/commission";
-import { encryptValue } from "@/lib/crypto";
+import { checkRateLimit } from "@/lib/rate-limit";
 import { prisma } from "@/lib/db";
-import { orderSchema } from "@/lib/validations";
+import { sanitizeText } from "@/lib/sanitize";
+import { createOrderSchema } from "@/lib/validations";
+
+function getRequesterIp(headers: Headers) {
+  return headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+}
 
 export async function POST(request: Request) {
-  const session = await getServerSession(authOptions);
+  const ip = getRequesterIp(request.headers);
+  const rate = checkRateLimit({ key: `order-create:${ip}`, windowMs: 60_000, max: 5 });
 
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!rate.success) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
 
   const json = await request.json();
-  const parsed = orderSchema.safeParse(json);
+  const parsed = createOrderSchema.safeParse(json);
 
   if (!parsed.success) {
     return NextResponse.json({ error: parsed.error.flatten() }, { status: 400 });
   }
 
-  const listing = await prisma.listing.findUnique({
-    where: { id: parsed.data.listingId },
-    include: { seller: true }
+  const product = await prisma.product.findUnique({
+    where: { id: parsed.data.productId }
   });
 
-  if (!listing || listing.status !== Status.ACTIVE) {
-    return NextResponse.json({ error: "Listing is not available" }, { status: 404 });
+  if (!product || !product.isActive) {
+    return NextResponse.json({ error: "Product not available" }, { status: 404 });
   }
 
-  if (listing.sellerId === session.user.id) {
-    return NextResponse.json({ error: "You cannot buy your own listing" }, { status: 400 });
+  if (product.stock <= 0) {
+    return NextResponse.json({ error: "Out of stock" }, { status: 409 });
   }
-
-  const existingOpenOrder = await prisma.order.findFirst({
-    where: {
-      listingId: listing.id,
-      status: { in: [OrderStatus.PENDING, OrderStatus.DELIVERED] }
-    },
-    select: { id: true }
-  });
-
-  if (existingOpenOrder) {
-    return NextResponse.json({ error: "Listing already has an active order" }, { status: 409 });
-  }
-
-  const amount = Number(listing.price);
-  const commission = calculateCommission(amount, listing.seller.sellerTier);
 
   const order = await prisma.order.create({
     data: {
-      listingId: listing.id,
-      buyerId: session.user.id,
-      sellerId: listing.sellerId,
-      amount,
-      commission: commission.commission,
-      payoutAmount: commission.payout,
-      credentials: parsed.data.credentials ? encryptValue(parsed.data.credentials) : undefined,
-      escrowReleaseAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+      productId: product.id,
+      buyerEmail: parsed.data.buyerEmail.toLowerCase(),
+      buyerName: parsed.data.buyerName ? sanitizeText(parsed.data.buyerName) : null,
+      amount: product.price,
+      currency: product.currency,
+      paymentMethod: parsed.data.paymentMethod
+    },
+    include: {
+      product: true
     }
   });
 
-  return NextResponse.json({ data: order }, { status: 201 });
+  return NextResponse.json(
+    {
+      data: order,
+      redirectTo: `/checkout/${order.id}`
+    },
+    { status: 201 }
+  );
 }

@@ -1,16 +1,16 @@
 import Link from "next/link";
 
 const items = [
-  { href: "/dashboard", label: "Overview" },
-  { href: "/orders", label: "Orders" },
-  { href: "/sell", label: "Create Listing" },
-  { href: "/admin", label: "Admin" }
+  { href: "/admin/dashboard", label: "Dashboard" },
+  { href: "/admin/products", label: "Products" },
+  { href: "/admin/orders", label: "Orders" },
+  { href: "/admin/accounts", label: "Account Pool" }
 ];
 
 export default function Sidebar() {
   return (
     <aside className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
-      <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-300">Control Panel</h3>
+      <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-300">Admin Menu</h3>
       <div className="space-y-2">
         {items.map((item) => (
           <Link

@@ -7,172 +7,75 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum Role {
-  BUYER
-  SELLER
-  ADMIN
-}
-
-enum SellerTier {
-  NEW
-  VERIFIED
-  TOP
-}
-
-enum Status {
-  ACTIVE
-  SOLD
-  SUSPENDED
-}
-
 enum OrderStatus {
   PENDING
+  PAID
   DELIVERED
-  COMPLETED
-  DISPUTED
+  FAILED
   REFUNDED
 }
 
-enum Category {
-  ACCOUNT
-  CURRENCY
-  ITEM
-  BOOSTING
-  SERVICE
-}
-
-model User {
-  id              String      @id @default(cuid())
-  username        String      @unique
-  email           String      @unique
-  password        String?
-  avatar          String?
-  role            Role        @default(BUYER)
-  sellerTier      SellerTier  @default(NEW)
-  balance         Decimal     @default(0) @db.Decimal(12, 2)
-  isVerified      Boolean     @default(false)
-  sellerRating    Float       @default(0)
-  totalSales      Int         @default(0)
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
-  listings        Listing[]   @relation("SellerListings")
-  buyOrders       Order[]     @relation("BuyerOrders")
-  sellOrders      Order[]     @relation("SellerOrders")
-  writtenReviews  Review[]    @relation("ReviewerReviews")
-  receivedReviews Review[]    @relation("SellerReviews")
-  chatMessages    ChatMessage[]
-  accounts        Account[]
-  sessions        Session[]
-}
-
-model Listing {
+model Product {
   id          String    @id @default(cuid())
-  title       String
+  name        String
+  slug        String    @unique
   description String
-  price       Decimal   @db.Decimal(12, 2)
-  category    Category
-  game        String
-  platform    String
-  images      String[]
-  status      Status    @default(ACTIVE)
-  sellerId    String
-  seller      User      @relation("SellerListings", fields: [sellerId], references: [id])
-  orders      Order[]
+  logo        String
+  category    String
+  price       Float
+  currency    String    @default("UZS")
+  duration    String
+  isActive    Boolean   @default(true)
+  stock       Int       @default(0)
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+  accounts    Account[]
+  orders      Order[]
 
-  @@index([sellerId])
-  @@index([category, game, platform])
-  @@index([status])
-}
-
-model Order {
-  id              String      @id @default(cuid())
-  listingId       String
-  listing         Listing     @relation(fields: [listingId], references: [id])
-  buyerId         String
-  buyer           User        @relation("BuyerOrders", fields: [buyerId], references: [id])
-  sellerId        String
-  seller          User        @relation("SellerOrders", fields: [sellerId], references: [id])
-  status          OrderStatus @default(PENDING)
-  amount          Decimal     @db.Decimal(12, 2)
-  commission      Decimal     @default(0) @db.Decimal(12, 2)
-  payoutAmount    Decimal     @default(0) @db.Decimal(12, 2)
-  credentials     String?
-  escrowReleaseAt DateTime?
-  stripeCheckoutId String?
-  stripePaymentIntentId String? @unique
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
-  review          Review?
-  chatMessages    ChatMessage[]
-
-  @@index([buyerId])
-  @@index([sellerId])
-  @@index([listingId])
-  @@index([status])
-}
-
-model Review {
-  id         String   @id @default(cuid())
-  rating     Int
-  comment    String
-  reviewerId String
-  reviewer   User     @relation("ReviewerReviews", fields: [reviewerId], references: [id])
-  sellerId   String
-  seller     User     @relation("SellerReviews", fields: [sellerId], references: [id])
-  orderId    String   @unique
-  order      Order    @relation(fields: [orderId], references: [id])
-  createdAt  DateTime @default(now())
-
-  @@index([sellerId])
-  @@index([reviewerId])
-}
-
-model ChatMessage {
-  id        String   @id @default(cuid())
-  orderId   String
-  order     Order    @relation(fields: [orderId], references: [id])
-  senderId  String
-  sender    User     @relation(fields: [senderId], references: [id])
-  message   String
-  createdAt DateTime @default(now())
-
-  @@index([orderId])
-  @@index([senderId])
+  @@index([category, isActive])
 }
 
 model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  login     String
+  password  String
+  extraInfo String?
+  isSold    Boolean  @default(false)
+  soldAt    DateTime?
+  orderId   String?  @unique
+  createdAt DateTime @default(now())
+  order     Order?   @relation("OrderAccount")
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
+  @@index([productId, isSold])
 }
 
-model Session {
-  id           String   @id @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Order {
+  id            String      @id @default(uuid())
+  productId     String
+  product       Product     @relation(fields: [productId], references: [id], onDelete: Restrict)
+  accountId     String?     @unique
+  account       Account?    @relation("OrderAccount", fields: [accountId], references: [id])
+  buyerEmail    String
+  buyerName     String?
+  amount        Float
+  currency      String
+  status        OrderStatus @default(PENDING)
+  paymentId     String?
+  paymentMethod String?
+  deliveredAt   DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([productId])
+  @@index([status])
+  @@index([buyerEmail])
 }
 
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@id([identifier, token])
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
 }
