@@ -52,6 +52,27 @@ Admin:
 - `PUT /api/admin/orders/[id]`
 - `POST /api/admin/orders/[id]/deliver`
 
+## Docker (lokal)
+
+```bash
+docker compose up --build
+```
+
+Brauzerda: http://localhost:3000. PostgreSQL `localhost:5432` da ishlaydi (parol: `postgres`).
+
+## Railway deploy
+
+1. [Railway](https://railway.app) da yangi loyiha oching, GitHub repo ulang.
+2. **PostgreSQL** qo‘shing: Add Service → Database → PostgreSQL. Railway avtomatik `DATABASE_URL` ni beradi.
+3. **Web Service** qo‘shing: repo tanlang; build avtomatik `Dockerfile` orqali ishlaydi.
+4. Web servisga PostgreSQL ni ulang (Variables → Add Reference → `DATABASE_URL`).
+5. O‘zgaruvchilarni to‘ldiring:
+   - `NEXTAUTH_URL` = Railway domen (masalan `https://your-app.railway.app`)
+   - `NEXTAUTH_SECRET` = `openssl rand -base64 32` natijasi
+   - `ENCRYPTION_SECRET` = 32+ belgili maxfiy kalit
+   - Qolganlar: `.env.example` dagi SMTP, Click, Payme va boshqalar (ixtiyoriy).
+6. Deploy: har commit pushda avtomatik build va deploy bo‘ladi. Migratsiyalar container ishga tushganda `prisma migrate deploy` orqali bajariladi.
+
 ## Local Run
 
 1. Install dependencies:
