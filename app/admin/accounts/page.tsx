@@ -27,7 +27,7 @@ export default async function AdminAccountsPage() {
       <Sidebar />
       <div className="space-y-4">
         <h1 className="text-3xl font-semibold">Account Pool</h1>
-        {products.length ? <AccountsBulkUpload products={products} /> : <p className="text-slate-400">Create products first.</p>}
+        {products.length ? <AccountsBulkUpload products={products} /> : <p className="text-muted-foreground">Avval mahsulotlar yarating.</p>}
       </div>
     </div>
   );

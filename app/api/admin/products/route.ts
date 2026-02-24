@@ -49,8 +49,10 @@ export async function POST(request: Request) {
       logo: payload.logo,
       category: sanitizeText(payload.category),
       price: payload.price,
+      originalPrice: payload.originalPrice ?? undefined,
       currency: payload.currency.toUpperCase(),
       duration: sanitizeText(payload.duration),
+      stock: payload.stock ?? 0,
       isActive: payload.isActive
     }
   });

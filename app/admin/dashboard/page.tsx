@@ -41,53 +41,53 @@ export default async function AdminDashboardPage() {
       <Sidebar />
 
       <div className="space-y-6">
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-6">
-          <h1 className="mb-3 text-3xl font-semibold">Admin Dashboard</h1>
+        <section className="glass-card p-6">
+          <h1 className="mb-3 text-3xl font-semibold text-foreground">Dashboard</h1>
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-xl border border-slate-800 bg-slate-950/50 p-3">
-              <p className="text-xs uppercase text-slate-400">Products</p>
-              <p className="text-xl font-semibold text-cyan-300">{productsCount}</p>
+            <div className="rounded-xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Mahsulotlar</p>
+              <p className="text-xl font-semibold text-foreground">{productsCount}</p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950/50 p-3">
-              <p className="text-xs uppercase text-slate-400">Orders</p>
-              <p className="text-xl font-semibold text-cyan-300">{ordersCount}</p>
+            <div className="rounded-xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Buyurtmalar</p>
+              <p className="text-xl font-semibold text-foreground">{ordersCount}</p>
             </div>
-            <div className="rounded-xl border border-slate-800 bg-slate-950/50 p-3">
-              <p className="text-xs uppercase text-slate-400">Revenue</p>
-              <p className="text-xl font-semibold text-emerald-300">{new Intl.NumberFormat("uz-UZ").format(paidRevenue._sum.amount || 0)} UZS</p>
+            <div className="rounded-xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
+              <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">Tushum</p>
+              <p className="text-xl font-semibold text-foreground">{new Intl.NumberFormat("uz-UZ").format(paidRevenue._sum.amount || 0)} UZS</p>
             </div>
           </div>
         </section>
 
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+        <section className="glass-card p-5">
           <div className="mb-3 flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Low Stock Alerts</h2>
+            <h2 className="text-xl font-semibold text-foreground">Kam qolganlar</h2>
             <Badge tone="warning">{lowStock.length}</Badge>
           </div>
           <div className="space-y-2 text-sm">
             {lowStock.length ? (
               lowStock.map((product) => (
-                <p key={product.id} className="rounded-lg border border-slate-800 bg-slate-950/50 p-2 text-slate-300">
-                  {product.name} — {product.stock} left
+                <p key={product.id} className="rounded-xl border border-white/10 bg-white/5 p-2 text-muted-foreground backdrop-blur-sm">
+                  {product.name} — {product.stock} ta
                 </p>
               ))
             ) : (
-              <p className="text-slate-400">No low stock items.</p>
+              <p className="text-muted-foreground">Kam qolgan mahsulot yo‘q.</p>
             )}
           </div>
         </section>
 
-        <section className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
-          <h2 className="mb-3 text-xl font-semibold">Recent Orders</h2>
+        <section className="glass-card p-5">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">So‘nggi buyurtmalar</h2>
           <div className="space-y-2 text-sm">
             {recentOrders.length ? (
               recentOrders.map((order) => (
-                <p key={order.id} className="rounded-lg border border-slate-800 bg-slate-950/50 p-2 text-slate-300">
+                <p key={order.id} className="rounded-xl border border-white/10 bg-white/5 p-2 text-muted-foreground backdrop-blur-sm">
                   {order.product.name} — {order.buyerEmail} — {order.status}
                 </p>
               ))
             ) : (
-              <p className="text-slate-400">No orders yet.</p>
+              <p className="text-muted-foreground">Buyurtmalar yo‘q.</p>
             )}
           </div>
         </section>

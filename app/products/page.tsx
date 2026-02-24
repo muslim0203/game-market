@@ -16,12 +16,12 @@ type PageProps = {
 export default async function ProductsPage({ searchParams }: PageProps) {
   const where: Prisma.ProductWhereInput = {
     isActive: true,
-    ...(searchParams.category ? { category: { equals: searchParams.category, mode: "insensitive" } } : {}),
+    ...(searchParams.category ? { category: { equals: searchParams.category } } : {}),
     ...(searchParams.q
       ? {
           OR: [
-            { name: { contains: searchParams.q, mode: "insensitive" } },
-            { description: { contains: searchParams.q, mode: "insensitive" } }
+            { name: { contains: searchParams.q } },
+            { description: { contains: searchParams.q } }
           ]
         }
       : {})
@@ -42,8 +42,8 @@ export default async function ProductsPage({ searchParams }: PageProps) {
 
   return (
     <div>
-      <h1 className="mb-2 text-3xl font-semibold">Products</h1>
-      <p className="mb-6 text-sm text-slate-400">Premium subscription accounts with automated delivery.</p>
+      <h1 className="mb-2 text-3xl font-semibold text-foreground">Mahsulotlar</h1>
+      <p className="mb-6 text-sm text-muted-foreground">Premium obuna akkauntlari, to‘lovdan keyin avtomatik yetkazib berish.</p>
       <ProductFilter categories={categories.map((item) => item.category)} />
       <ProductGrid products={products} />
     </div>

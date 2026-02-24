@@ -51,17 +51,17 @@ export default function AccountsBulkUpload({ products }: Props) {
   }
 
   return (
-    <form onSubmit={submitBulk} className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
-      <h2 className="text-xl font-semibold">Bulk Account Upload</h2>
+    <form onSubmit={submitBulk} className="glass-card space-y-3 p-5">
+      <h2 className="text-xl font-semibold text-foreground">Akkauntlarni yuklash (CSV)</h2>
 
       <select
         value={productId}
         onChange={(event) => setProductId(event.target.value)}
-        className="h-11 w-full rounded-xl border border-slate-700 bg-slate-900 px-3 text-sm text-slate-100 focus:border-cyan-400 focus:outline-none"
+        className="flex h-9 w-full rounded-xl border border-white/20 bg-white/5 px-3 py-1 text-sm backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       >
         {products.map((item) => (
           <option key={item.id} value={item.id}>
-            {item.name} (stock: {item.stock})
+            {item.name} (qoldiq: {item.stock})
           </option>
         ))}
       </select>
@@ -69,11 +69,11 @@ export default function AccountsBulkUpload({ products }: Props) {
       <textarea
         value={csv}
         onChange={(event) => setCsv(event.target.value)}
-        className="h-56 w-full rounded-xl border border-slate-700 bg-slate-900/70 p-3 text-sm text-slate-100 placeholder:text-slate-400 focus:border-cyan-400 focus:outline-none"
+        className="flex min-h-[14rem] w-full rounded-xl border border-white/20 bg-white/5 px-3 py-2 text-sm backdrop-blur-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
       />
 
-      {message ? <p className="text-sm text-slate-300">{message}</p> : null}
-      <Button disabled={loading}>{loading ? "Uploading..." : "Upload CSV"}</Button>
+      {message ? <p className="text-sm text-muted-foreground">{message}</p> : null}
+      <Button disabled={loading}>{loading ? "Yuklanmoqda..." : "CSV yuklash"}</Button>
     </form>
   );
 }

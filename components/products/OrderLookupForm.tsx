@@ -19,7 +19,7 @@ export default function OrderLookupForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto max-w-xl space-y-3 rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
+    <form onSubmit={onSubmit} className="glass-card mx-auto max-w-xl space-y-3 p-5">
       <Input value={orderId} onChange={(event) => setOrderId(event.target.value)} placeholder="Paste your order ID" required />
       <Button className="w-full">Track Order</Button>
     </form>

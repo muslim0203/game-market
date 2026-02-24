@@ -1,18 +1,61 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --bg: #050914;
-  --panel: #0b1224;
-  --panel-2: #101c35;
-  --ink: #e2e8f0;
-  --muted: #94a3b8;
-  --line: #1e293b;
-  --accent: #0ea5e9;
-  --surge: #f97316;
+@layer base {
+  :root {
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+    /* Liquid Glass — yorug' tema */
+    --background: 220 20% 97%;
+    --foreground: 220 20% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 12%;
+    --primary: 220 70% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 94%;
+    --secondary-foreground: 220 20% 12%;
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 30% 92%;
+    --accent-foreground: 220 20% 12%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 90%;
+    --input: 220 20% 90%;
+    --ring: 220 70% 50%;
+    --radius: 1rem;
+    /* Liquid Glass */
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+    --glass-shadow-inset: inset 0 2px 12px rgba(255, 255, 255, 0.4);
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 95%;
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 95%;
+    --primary: 220 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 15% 95%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 60%;
+    --accent: 220 25% 18%;
+    --accent-foreground: 220 15% 95%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 220 70% 55%;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --glass-shadow-inset: inset 0 2px 12px rgba(255, 255, 255, 0.05);
+  }
 }
 
 * {
@@ -22,11 +65,13 @@
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--ink);
-  background: radial-gradient(circle at 20% 15%, rgba(14, 165, 233, 0.24), transparent 36%),
-    radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.2), transparent 30%),
-    linear-gradient(180deg, #020611 0%, #050914 50%, #091228 100%);
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  background: linear-gradient(135deg, hsl(220 25% 96%) 0%, hsl(220 20% 92%) 50%, hsl(225 30% 94%) 100%);
+  color: hsl(var(--foreground));
+}
+
+.dark body {
+  background: linear-gradient(135deg, hsl(220 25% 8%) 0%, hsl(220 30% 10%) 50%, hsl(225 25% 9%) 100%);
 }
 
 a {
@@ -35,6 +80,31 @@ a {
 }
 
 ::selection {
-  background: rgba(14, 165, 233, 0.3);
-  color: #fff;
+  background: hsl(var(--primary) / 0.25);
+  color: hsl(var(--foreground));
+}
+
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px hsl(var(--background)), 0 0 0 4px hsl(var(--ring));
+}
+
+/* Liquid Glass utility */
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), var(--glass-shadow-inset);
+  }
+
+  .glass-card {
+    @apply rounded-2xl;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow), var(--glass-shadow-inset);
+  }
 }

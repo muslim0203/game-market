@@ -5,3 +5,5 @@ node_modules
 .prisma
 coverage
 .DS_Store
+*.db
+prisma/*.db

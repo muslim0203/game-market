@@ -7,30 +7,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-enum OrderStatus {
-  PENDING
-  PAID
-  DELIVERED
-  FAILED
-  REFUNDED
-}
-
 model Product {
-  id          String    @id @default(cuid())
-  name        String
-  slug        String    @unique
-  description String
-  logo        String
-  category    String
-  price       Float
-  currency    String    @default("UZS")
-  duration    String
-  isActive    Boolean   @default(true)
-  stock       Int       @default(0)
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-  accounts    Account[]
-  orders      Order[]
+  id            String    @id @default(cuid())
+  name          String
+  slug          String    @unique
+  description   String
+  logo          String
+  category      String
+  price         Float
+  originalPrice Float?
+  currency      String    @default("UZS")
+  duration      String
+  isActive      Boolean   @default(true)
+  stock         Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  accounts      Account[]
+  orders        Order[]
 
   @@index([category, isActive])
 }
@@ -61,7 +54,7 @@ model Order {
   buyerName     String?
   amount        Float
   currency      String
-  status        OrderStatus @default(PENDING)
+  status        String      @default("PENDING") // PENDING | PAID | DELIVERED | FAILED | REFUNDED
   paymentId     String?
   paymentMethod String?
   deliveredAt   DateTime?

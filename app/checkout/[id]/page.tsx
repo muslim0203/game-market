@@ -23,12 +23,12 @@ export default async function CheckoutPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-5">
-      <h1 className="text-3xl font-semibold">Checkout</h1>
+      <h1 className="text-3xl font-semibold text-foreground">To‘lov</h1>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
-        <p className="text-sm text-slate-400">Order ID</p>
-        <p className="break-all text-sm text-slate-200">{order.id}</p>
-        <div className="mt-4 grid gap-2 text-sm text-slate-300">
+      <div className="glass-card p-5">
+        <p className="text-sm text-muted-foreground">Buyurtma ID</p>
+        <p className="break-all text-sm text-foreground">{order.id}</p>
+        <div className="mt-4 grid gap-2 text-sm text-muted-foreground">
           <p>Product: {order.product.name}</p>
           <p>Duration: {order.product.duration}</p>
           <p>Email: {order.buyerEmail}</p>

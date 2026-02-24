@@ -2,26 +2,26 @@ import Link from "next/link";
 
 const items = [
   { href: "/admin/dashboard", label: "Dashboard" },
-  { href: "/admin/products", label: "Products" },
-  { href: "/admin/orders", label: "Orders" },
-  { href: "/admin/accounts", label: "Account Pool" }
+  { href: "/admin/products", label: "Mahsulotlar" },
+  { href: "/admin/orders", label: "Buyurtmalar" },
+  { href: "/admin/accounts", label: "Akkauntlar" }
 ];
 
 export default function Sidebar() {
   return (
-    <aside className="rounded-2xl border border-slate-800 bg-slate-900/50 p-4">
-      <h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-300">Admin Menu</h3>
-      <div className="space-y-2">
+    <aside className="glass-card p-4">
+      <h3 className="mb-4 text-sm font-semibold text-foreground">Menyu</h3>
+      <nav className="space-y-1">
         {items.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="block rounded-lg border border-transparent px-3 py-2 text-sm text-slate-300 transition hover:border-slate-700 hover:bg-slate-800/70 hover:text-white"
+            className="block rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-white/10 hover:text-foreground"
           >
             {item.label}
           </Link>
         ))}
-      </div>
+      </nav>
     </aside>
   );
 }

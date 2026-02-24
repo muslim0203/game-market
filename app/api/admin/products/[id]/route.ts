@@ -36,8 +36,10 @@ export async function PUT(request: Request, { params }: Params) {
       ...(payload.logo ? { logo: payload.logo } : {}),
       ...(payload.category ? { category: sanitizeText(payload.category) } : {}),
       ...(typeof payload.price === "number" ? { price: payload.price } : {}),
+      ...(payload.originalPrice !== undefined ? { originalPrice: payload.originalPrice } : {}),
       ...(payload.currency ? { currency: payload.currency.toUpperCase() } : {}),
       ...(payload.duration ? { duration: sanitizeText(payload.duration) } : {}),
+      ...(typeof payload.stock === "number" ? { stock: payload.stock } : {}),
       ...(typeof payload.isActive === "boolean" ? { isActive: payload.isActive } : {})
     }
   });

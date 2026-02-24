@@ -29,40 +29,40 @@ export default async function OrderPage({ params }: PageProps) {
 
   return (
     <div className="mx-auto max-w-3xl space-y-5">
-      <h1 className="text-3xl font-semibold">Order Status</h1>
+      <h1 className="text-3xl font-semibold text-foreground">Buyurtma holati</h1>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5">
+      <div className="glass-card p-5">
         <div className="mb-3 flex items-center justify-between">
-          <p className="text-sm text-slate-400">Order #{order.id}</p>
+          <p className="text-sm text-muted-foreground">Buyurtma #{order.id}</p>
           <Badge tone={order.status === "DELIVERED" ? "success" : order.status === "FAILED" ? "warning" : "info"}>{order.status}</Badge>
         </div>
 
-        <div className="grid gap-2 text-sm text-slate-300">
-          <p>Product: {order.product.name}</p>
-          <p>Amount: {new Intl.NumberFormat("uz-UZ").format(order.amount)} {order.currency}</p>
-          <p>Payment method: {order.paymentMethod || "-"}</p>
-          <p>Buyer email: {order.buyerEmail}</p>
-          <p>Created: {new Date(order.createdAt).toLocaleString()}</p>
+        <div className="grid gap-2 text-sm text-muted-foreground">
+          <p>Mahsulot: {order.product.name}</p>
+          <p>Summa: {new Intl.NumberFormat("uz-UZ").format(order.amount)} {order.currency}</p>
+          <p>To‘lov: {order.paymentMethod || "-"}</p>
+          <p>Email: {order.buyerEmail}</p>
+          <p>Sana: {new Date(order.createdAt).toLocaleString()}</p>
         </div>
       </div>
 
       {credentials ? (
-        <div className="rounded-2xl border border-emerald-700/50 bg-emerald-950/20 p-5">
-          <h2 className="mb-3 text-xl font-semibold text-emerald-200">Delivered Credentials</h2>
-          <div className="grid gap-2 text-sm text-slate-200">
+        <div className="glass-card border-emerald-200/50 bg-emerald-50/80 p-5 dark:border-emerald-500/20 dark:bg-emerald-950/40">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">Yetkazilgan ma’lumotlar</h2>
+          <div className="grid gap-2 text-sm text-muted-foreground">
             <p>Login: {credentials.login}</p>
-            <p>Password: {credentials.password}</p>
-            <p>Extra info: {credentials.extraInfo || "-"}</p>
+            <p>Parol: {credentials.password}</p>
+            <p>Qo‘shimcha: {credentials.extraInfo || "-"}</p>
           </div>
         </div>
       ) : (
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5 text-sm text-slate-400">
-          Credentials will appear here after payment confirmation and automatic delivery.
+        <div className="glass-card p-5 text-sm text-muted-foreground">
+          To‘lov tasdiqlangach akkaunt ma’lumotlari shu yerga avtomatik chiqadi.
         </div>
       )}
 
       <Link href="/products">
-        <Button variant="ghost">Back to products</Button>
+        <Button variant="outline">Mahsulotlarga qaytish</Button>
       </Link>
     </div>
   );

@@ -1,5 +1,5 @@
-import { OrderStatus } from "@prisma/client";
 import { z } from "zod";
+import { ORDER_STATUS_VALUES } from "@/lib/order-status";
 
 export const adminLoginSchema = z.object({
   email: z.string().email(),
@@ -15,8 +15,10 @@ export const productSchema = z.object({
   logo: z.string().url().max(500),
   category: categorySchema,
   price: z.number().positive().max(100_000_000),
+  originalPrice: z.number().positive().max(100_000_000).nullable().optional(),
   currency: z.string().min(3).max(6).default("UZS"),
   duration: z.string().min(2).max(40),
+  stock: z.number().int().min(0).max(1_000_000).optional().default(0),
   isActive: z.boolean().optional().default(true)
 });
 
@@ -59,7 +61,7 @@ export const paymeRpcSchema = z.object({
 });
 
 export const updateOrderStatusSchema = z.object({
-  status: z.nativeEnum(OrderStatus)
+  status: z.enum(ORDER_STATUS_VALUES as [string, ...string[]])
 });
 
 export const deliverOrderSchema = z.object({

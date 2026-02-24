@@ -1,0 +1,15 @@
+Logolar — saytda ishlatiladigan fayl nomlari:
+
+Adobe.jpg           → Adobe Creative Cloud
+Canva.jpeg          → Canva Pro
+Capcut.jpg          → CapCut Pro (1 oy, 6 oy, 1 yil)
+ChatGPT-Logo.png    → ChatGPT Plus
+Freepik.webp        → Freepik Premium
+Gemini Ultra.jpg    → Gemini Ultra (fayl nomida bo'shliq bo'lsa URL da %20)
+Google one.jpg      → Google One AI
+Grok.png            → Grok SuperGrok
+Microsoft.jpg       → Microsoft 365 Personal
+n8n.png             → N8N Starter
+Windows.webp        → Windows 11 Pro N Key
+
+Barcha fayllar public/links/ papkasida bo'lishi kerak.

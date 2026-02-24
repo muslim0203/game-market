@@ -1,7 +1,7 @@
-import { OrderStatus } from "@prisma/client";
 import { NextResponse } from "next/server";
 
 import { prisma } from "@/lib/db";
+import { OrderStatus } from "@/lib/order-status";
 import { decryptAccountCredentials } from "@/lib/orders";
 
 type Params = {

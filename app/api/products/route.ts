@@ -11,10 +11,10 @@ export async function GET(request: Request) {
 
   const where: Prisma.ProductWhereInput = {
     isActive: true,
-    ...(category ? { category: { equals: category, mode: "insensitive" } } : {}),
+    ...(category ? { category: { equals: category } } : {}),
     ...(q
       ? {
-          OR: [{ name: { contains: q, mode: "insensitive" } }, { description: { contains: q, mode: "insensitive" } }]
+          OR: [{ name: { contains: q } }, { description: { contains: q } }]
         }
       : {})
   };

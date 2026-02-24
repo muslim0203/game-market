@@ -56,25 +56,25 @@ export default function OrdersManager({ initialOrders }: Props) {
   }
 
   return (
-    <div className="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/50">
+    <div className="glass-card overflow-x-auto">
       <table className="min-w-full text-sm">
-        <thead className="border-b border-slate-800 bg-slate-950/60 text-left text-slate-400">
+        <thead className="border-b border-white/15 bg-white/10 text-left text-muted-foreground backdrop-blur-sm">
           <tr>
-            <th className="px-3 py-2">Order</th>
-            <th className="px-3 py-2">Product</th>
-            <th className="px-3 py-2">Buyer</th>
-            <th className="px-3 py-2">Amount</th>
-            <th className="px-3 py-2">Status</th>
-            <th className="px-3 py-2">Actions</th>
+            <th className="px-3 py-2 font-medium">Buyurtma</th>
+            <th className="px-3 py-2 font-medium">Mahsulot</th>
+            <th className="px-3 py-2 font-medium">Buyer</th>
+            <th className="px-3 py-2 font-medium">Summa</th>
+            <th className="px-3 py-2 font-medium">Holat</th>
+            <th className="px-3 py-2 font-medium">Amallar</th>
           </tr>
         </thead>
         <tbody>
           {orders.map((order) => (
-            <tr key={order.id} className="border-b border-slate-800/70 align-top">
-              <td className="px-3 py-2 text-xs text-slate-300">{order.id}</td>
+            <tr key={order.id} className="border-b border-white/10 align-top">
+              <td className="px-3 py-2 text-xs text-muted-foreground">{order.id}</td>
               <td className="px-3 py-2">
                 {order.product.name}
-                <p className="text-xs text-slate-500">{order.product.duration}</p>
+                <p className="text-xs text-muted-foreground">{order.product.duration}</p>
               </td>
               <td className="px-3 py-2">{order.buyerEmail}</td>
               <td className="px-3 py-2">
@@ -84,7 +84,7 @@ export default function OrdersManager({ initialOrders }: Props) {
               <td className="px-3 py-2">
                 <div className="flex flex-col gap-2">
                   <select
-                    className="h-9 rounded-lg border border-slate-700 bg-slate-900 px-2 text-xs"
+                    className="flex h-9 rounded-xl border border-white/20 bg-white/5 px-2 text-xs backdrop-blur-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     value={order.status}
                     onChange={(event) => updateStatus(order.id, event.target.value)}
                   >

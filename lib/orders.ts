@@ -1,5 +1,4 @@
-import { OrderStatus } from "@prisma/client";
-
+import { OrderStatus } from "@/lib/order-status";
 import { decryptValue } from "@/lib/crypto";
 import { prisma } from "@/lib/db";
 import { sendOrderDeliveredMail, sendOrderFailedMail } from "@/lib/email";

@@ -1,80 +1,51 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+const TELEGRAM_USERNAME = "momiqcha_0";
+const TELEGRAM_URL = `https://t.me/${TELEGRAM_USERNAME}`;
 
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/Input";
-
-const methods = ["CLICK", "PAYME", "STRIPE", "CRYPTO"] as const;
+function buildTelegramMessage(productName: string, price: string, duration: string): string {
+  return `Assalomu alaykum! "${productName}" mahsulotini sotib olmoqchiman.\nNarx: ${price}\nMuddat: ${duration}`;
+}
 
 type Props = {
   productId: string;
+  productName: string;
+  productPrice: number;
+  productCurrency: string;
+  productDuration: string;
   stock: number;
 };
 
-export default function OrderCreateForm({ productId, stock }: Props) {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [method, setMethod] = useState<(typeof methods)[number]>("CLICK");
-
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (stock <= 0) {
-      setError("Out of stock");
-      return;
-    }
-
-    setLoading(true);
-    setError(null);
-
-    const formData = new FormData(event.currentTarget);
-
-    const response = await fetch("/api/orders", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        productId,
-        buyerEmail: String(formData.get("buyerEmail") || ""),
-        buyerName: String(formData.get("buyerName") || "") || undefined,
-        paymentMethod: method
-      })
-    });
-
-    const result = await response.json();
-
-    if (!response.ok) {
-      setError(result.error ? JSON.stringify(result.error) : "Order creation failed");
-      setLoading(false);
-      return;
-    }
-
-    window.location.href = `/checkout/${result.data.id}`;
-  }
+export default function OrderCreateForm({
+  productName,
+  productPrice,
+  productCurrency,
+  productDuration,
+  stock
+}: Props) {
+  const priceFormatted = `${new Intl.NumberFormat("uz-UZ").format(productPrice)} ${productCurrency}`;
+  const message = buildTelegramMessage(productName, priceFormatted, productDuration);
+  const telegramLink = `${TELEGRAM_URL}?text=${encodeURIComponent(message)}`;
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3 rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
-      <Input name="buyerEmail" type="email" placeholder="Email" required />
-      <Input name="buyerName" placeholder="Name (optional)" />
-
-      <select
-        value={method}
-        onChange={(event) => setMethod(event.target.value as (typeof methods)[number])}
-        className="h-11 w-full rounded-xl border border-slate-700 bg-slate-900 px-3 text-sm text-slate-100 focus:border-cyan-400 focus:outline-none"
+    <div className="space-y-3">
+      <a
+        href={telegramLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#0088cc] px-4 py-3 text-center font-medium text-white shadow-lg transition hover:bg-[#0077b5] hover:shadow-xl"
       >
-        {methods.map((item) => (
-          <option key={item} value={item}>
-            {item}
-          </option>
-        ))}
-      </select>
-
-      {error ? <p className="text-sm text-rose-300">{error}</p> : null}
-      <Button className="w-full" disabled={loading || stock <= 0}>
-        {loading ? "Creating order..." : stock <= 0 ? "Out of stock" : "Go to Checkout"}
-      </Button>
-    </form>
+        <svg className="h-6 w-6 shrink-0" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+        </svg>
+        Telegram orqali buyurtma berish
+      </a>
+      {stock <= 0 && (
+        <p className="text-center text-sm text-muted-foreground">Hozircha mahsulot tugagan. Telegram orqali so‘rang.</p>
+      )}
+      <p className="text-center text-xs text-muted-foreground">
+        @{TELEGRAM_USERNAME} — buyurtma va to‘lov bo‘yicha operatorimiz
+      </p>
+    </div>
   );
 }

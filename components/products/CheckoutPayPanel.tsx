@@ -48,10 +48,10 @@ export default function CheckoutPayPanel({ orderId, paymentMethod }: Props) {
   }
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900/50 p-5">
-      <h2 className="mb-2 text-xl font-semibold">Complete payment</h2>
-      <p className="mb-4 text-sm text-slate-400">Current method: {paymentMethod || "CLICK"}</p>
-      {error ? <p className="mb-3 text-sm text-rose-300">{error}</p> : null}
+    <div className="glass-card p-5">
+      <h2 className="mb-2 text-xl font-semibold text-foreground">To‘lovni yakunlash</h2>
+      <p className="mb-4 text-sm text-muted-foreground">To‘lov usuli: {paymentMethod || "CLICK"}</p>
+      {error ? <p className="mb-3 text-sm text-destructive">{error}</p> : null}
       <Button className="w-full" onClick={simulatePayment} disabled={loading}>
         {loading ? "Processing..." : "Simulate Successful Payment"}
       </Button>
