@@ -46,3 +46,31 @@ npx prisma db seed
 ```
 
 Shundan keyin saytda admin bilan kirish: **admin@digitalhub.uz** / **admin1234**
+
+---
+
+## Muammo: "prisma migrate deploy" build da xato beradi
+
+### Railway + Vercel
+
+Agar baza **Railway** da, build esa **Vercel** da bo‘lsa:
+
+- Vercel **public** (tashqi) URL dan foydalanishi kerak. `postgres.railway.internal` faqat Railway ichida ishlaydi.
+- Railway → PostgreSQL → **Variables** dan **public** connection string ni oling (host `*.railway.app` yoki `*.proxy.rlwy.net` bo‘ladi).
+- Vercel da `DATABASE_URL` ni shu public URL ga qo‘ying va oxiriga `?sslmode=require` qo‘shing:
+  ```
+  postgresql://postgres:PAROL@roundhouse.proxy.rlwy.net:12345/railway?sslmode=require
+  ```
+
+### Build ni migratsiyasiz ishlatish (ixtiyoriy)
+
+Agar build da `prisma migrate deploy` baribir ulanish xatosi bersa:
+
+1. **Bir marta** migratsiyalarni lokalda ishga tushiring (`.env` da production `DATABASE_URL` bilan):
+   ```bash
+   npx prisma migrate deploy
+   npx prisma db seed
+   ```
+2. Vercel da **Settings** → **General** → **Build & Development Settings** → **Build Command** ni o‘zgartiring:
+   - **Override** qiling va qiymatga yozing: `npm run build:vercel`
+3. **Redeploy** qiling. Keyingi buildlar baza ga ulanishsiz o‘tadi.
