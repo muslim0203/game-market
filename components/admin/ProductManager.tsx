@@ -149,7 +149,7 @@ export default function ProductManager({ initialProducts }: Props) {
   return (
     <div className="space-y-5">
       <form onSubmit={createProduct} className="glass-card space-y-3 p-5">
-        <h2 className="text-xl font-semibold text-foreground">Yang'i mahsulot qo‘shish</h2>
+        <h2 className="text-xl font-semibold text-foreground">Yangi mahsulot qo&apos;shish</h2>
 
         <div className="grid gap-3 md:grid-cols-2">
           <Input name="name" placeholder="Nomi" required />
