@@ -1,4 +1,4 @@
-# DigitalHub
+# ObunaPro
 
 Admin-only digital subscription accounts store (1shop-style): ChatGPT Plus, Gemini, Claude, Canva Pro, CapCut, Adobe va boshqa premium xizmatlar.
 

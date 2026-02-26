@@ -4,8 +4,8 @@ import { Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import Button from "@/components/ui/Button";
 
 export const metadata = {
-  title: "Aloqa | DigitalHub",
-  description: "DigitalHub bilan bog‘laning — savollar va buyurtmalar bo‘yicha qo‘llab-quvvatlash"
+  title: "Aloqa | ObunaPro",
+  description: "ObunaPro bilan bog‘laning — savollar va buyurtmalar bo‘yicha qo‘llab-quvvatlash"
 };
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
 
       <div className="grid gap-6 sm:grid-cols-2">
         <a
-          href="mailto:support@digitalhub.uz"
+          href="mailto:support@obunapro.uz"
           className="glass-card flex gap-4 p-5 transition-all hover:-translate-y-0.5 hover:shadow-glass"
         >
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
@@ -27,7 +27,7 @@ export default function ContactPage() {
           <div>
             <h3 className="font-semibold text-foreground">Email</h3>
             <p className="mt-1 text-sm text-muted-foreground">Savollar va buyurtmalar bo‘yicha</p>
-            <p className="mt-2 text-primary">support@digitalhub.uz</p>
+            <p className="mt-2 text-primary">support@obunapro.uz</p>
           </div>
         </a>
 

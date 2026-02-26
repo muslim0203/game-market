@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 // Admin kirish (seed dan keyin shu ma'lumotlar bilan kiring)
-const ADMIN_EMAIL = "admin@digitalhub.uz";
+const ADMIN_EMAIL = "admin@obunapro.uz";
 const ADMIN_PASSWORD = "admin1234";
 
 const products = [
@@ -238,6 +238,57 @@ Kimlar Uchun Mos:
     duration: "1 oy",
     isActive: true,
     stock: 10
+  },
+  {
+    name: "Antigravity Pro 1 yil",
+    slug: "antigravity-pro-1-yil",
+    description: `🚀 ObunaPro — Dunyodagi eng kuchli AI endi sizning xizmatingizda!
+Google-ning eng ilg'or texnologiyasi — Gemini Advanced va 2TB xotiraga ega bo'lish imkoniyatini boy bermang! ⚡️
+📧 O'z emailingiz orqali faollashtirish (faqat email manzili kerak, parol so'ralmaydi)
+👨‍👩‍👧‍👦 Guruhga qo'shilish: Email kelganidan so'ng, Gemini Pro-dan foydalanish uchun shunchaki "Oilaviy guruh"ga (Family group) qo'shilish tugmasini bosing.
+
+✨ Nimalarga ega bo'lasiz?
+🧠 Gemini Advanced: Murakkab vazifalar, tahlil va ijod uchun eng aqlli AI.
+☁️ 2TB Google One: Rasmlar, videolar va fayllar uchun ulkan bulutli xotira.
+🎬 Veo 3: Sun'iy intellekt yordamida professional videolar yarating.
+🔗 Integratsiya: Gmail, Docs va Sheets ilovalarida bevosita AI yordamidan foydalaning.
+💻 Dasturchilar uchun: Antigravity va CLI'da yuqori so'rov limitlari.
+
+💎 Nega aynan ObunaPro?
+✅ 12 oylik: Bir yil davomida uzluksiz xizmat.
+✅ Xavfsiz faollashtirish: Parolingiz shart emas, faqat emailingiz orqali "Family Group"ga qo'shilasiz.
+✅ Hamyonbop narx: Rasmiy narxdan bir necha barobar arzon va qulay.
+
+⚠️ Muhim: Agar "boshqa davlat" muammosi chiqsa, shunchaki kartangizni profilingizdan yechib qo'ysangiz kifoya — xizmat dunyo bo'ylab ishlaydi! 🌍
+📥 Hoziroq obuna bo'ling va ish unumdorligingizni yangi bosqichga olib chiqing!`,
+    logo: "/links/Antigravity.png",
+    category: "AI",
+    price: 149_000,
+    originalPrice: 375_000,
+    currency: "UZS",
+    duration: "1 yil",
+    stock: 10
+  },
+  {
+    name: "Cursor Pro (Tez kunda)",
+    slug: "cursor-pro",
+    description: `🚀 ObunaPro — Tez kunda Cursor Pro sizning xizmatingizda!
+Dasturchilar uchun maxsus yaratilgan eng aqlli AI kod redaktori.
+
+✨ Nimalarga ega bo'lasiz?
+🧠 GPT-4, Claude 3.5 Sonnet va boshqa top modellarga tezkor access.
+💻 Kod yozish, tahlil qilish, refaktoring va xatolarni to'g'rilashda AI yordami.
+⚡️ Autocomplete va butun loyiha (codebase) bo'ylab kontekstual qidiruv.
+
+⚠️ Hozircha ushbu obuna sotuvda emas, tez kunda platformamizga qo'shiladi! Yangiliklarni kuzatib boring.`,
+    logo: "/links/Cursor.png",
+    category: "AI",
+    price: 0,
+    originalPrice: 250_000,
+    currency: "UZS",
+    duration: "1 oy",
+    isActive: true,
+    stock: 0
   }
 ];
 

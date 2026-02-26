@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 
 import Button from "@/components/ui/Button";
 
-const SITE_LOGO = "/links/DigitalHub.jpg";
+const SITE_LOGO = "/links/logo.png";
 
 export default function Navbar() {
   const { data } = useSession();
@@ -21,7 +21,7 @@ export default function Navbar() {
         >
           <Image
             src={SITE_LOGO}
-            alt="DigitalHub"
+            alt="ObunaPro"
             width={200}
             height={56}
             className="h-12 w-auto max-h-14 object-contain object-left sm:h-14"
@@ -33,7 +33,7 @@ export default function Navbar() {
               if (next) next.classList.remove("hidden");
             }}
           />
-          <span className="hidden text-lg font-semibold text-foreground">DigitalHub</span>
+          <span className="hidden text-lg font-semibold text-foreground">ObunaPro</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">

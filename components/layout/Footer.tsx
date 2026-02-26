@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Mail, MapPin, MessageCircle } from "lucide-react";
 
-const SITE_LOGO = "/links/DigitalHub.jpg";
+const SITE_LOGO = "/links/logo.png";
 
 export default function Footer() {
   return (
@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/" className="inline-block transition-opacity hover:opacity-90">
               <Image
                 src={SITE_LOGO}
-                alt="DigitalHub"
+                alt="ObunaPro"
                 width={220}
                 height={64}
                 className="h-14 w-auto object-contain object-left sm:h-16"
@@ -67,11 +67,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:support@digitalhub.uz"
+                  href="mailto:support@obunapro.uz"
                   className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 shrink-0" />
-                  support@digitalhub.uz
+                  support@obunapro.uz
                 </a>
               </li>
               <li className="inline-flex items-center gap-2">
@@ -87,7 +87,7 @@ export default function Footer() {
               Biz haqimizda
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              DigitalHub — premium obuna va litsenziyalarni xavfsiz va tez yetkazib beruvchi platforma. Har bir buyurtma shifrlangan holda qayta ishlanadi.
+              ObunaPro — premium obuna va litsenziyalarni xavfsiz va tez yetkazib beruvchi platforma. Har bir buyurtma shifrlangan holda qayta ishlanadi.
             </p>
             <Link
               href="/about"
@@ -99,7 +99,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-center justify-between gap-2 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row">
-          <p>© {new Date().getFullYear()} DigitalHub. Barcha huquqlar himoyalangan.</p>
+          <p>© {new Date().getFullYear()} ObunaPro. Barcha huquqlar himoyalangan.</p>
           <p>To‘lovdan keyin avtomatik yetkazib berish • Shifrlangan ma’lumotlar</p>
         </div>
       </div>

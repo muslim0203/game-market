@@ -4,6 +4,7 @@ import ProductGrid from "@/components/products/ProductGrid";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { prisma } from "@/lib/db";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/jsonld";
 
 export const dynamic = "force-dynamic";
 
@@ -58,14 +59,21 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([organizationJsonLd(), webSiteJsonLd()])
+        }}
+      />
+
       <section className="glass-card relative overflow-hidden bg-hero-grid p-8 md:p-12">
         <div className="max-w-3xl space-y-5 animate-fade-in">
-          <Badge variant="info">Premium obuna do‘koni</Badge>
+          <Badge variant="info">Premium obuna do&apos;koni</Badge>
           <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            Premium obunalar, tez yetkazib berish
+            ObunaPro — Premium Obuna Akkauntlari Do&apos;koni
           </h1>
           <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-            ChatGPT Plus, Gemini, Claude, Canva, Adobe va boshqa xizmatlar. Har bir buyurtma to‘lovdan keyin avtomatik akkaunt bilan yetkaziladi.
+            ChatGPT Plus, Gemini, Claude, Canva, Adobe va boshqa xizmatlar. Har bir buyurtma to&apos;lovdan keyin avtomatik akkaunt bilan yetkaziladi.
           </p>
           <div className="flex flex-wrap gap-3">
             <Link href="/products">
@@ -117,7 +125,7 @@ export default async function HomePage() {
               className="glass-card p-4 transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-glass"
             >
               <p className="font-semibold text-foreground">{category}</p>
-              <p className="mt-0.5 text-sm text-foreground/80">{category} bo‘yicha xizmatlar</p>
+              <p className="mt-0.5 text-sm text-foreground/80">{category} bo&apos;yicha xizmatlar</p>
             </Link>
           ))}
         </div>
@@ -138,16 +146,16 @@ export default async function HomePage() {
             featured.length
               ? featured
               : featuredNames.map((name, index) => ({
-                  id: `sample-${index}`,
-                  name,
-                  slug: "products",
-                  logo: "/links/DigitalHub.jpg",
-                  category: index < 2 ? "AI" : index < 3 ? "Dizayn" : "Video",
-                  price: 100000,
-                  currency: "UZS",
-                  duration: "1 oy",
-                  stock: 0
-                }))
+                id: `sample-${index}`,
+                name,
+                slug: "products",
+                logo: "/links/logo.png",
+                category: index < 2 ? "AI" : index < 3 ? "Dizayn" : "Video",
+                price: 100000,
+                currency: "UZS",
+                duration: "1 oy",
+                stock: 0
+              }))
           }
         />
       </section>

@@ -45,7 +45,7 @@ git push -u origin main
 npx prisma db seed
 ```
 
-Shundan keyin saytda admin bilan kirish: **admin@digitalhub.uz** / **admin1234**
+Shundan keyin saytda admin bilan kirish: **admin@obunapro.uz** / **admin1234**
 
 ---
 

@@ -1,8 +1,18 @@
 import { Prisma } from "@prisma/client";
+import type { Metadata } from "next";
 
 import ProductFilter from "@/components/products/ProductFilter";
 import ProductGrid from "@/components/products/ProductGrid";
 import { prisma } from "@/lib/db";
+
+export const metadata: Metadata = {
+  title: "Mahsulotlar",
+  description:
+    "Premium obuna akkauntlari — ChatGPT Plus, Canva Pro, Adobe Creative Cloud va boshqalar. Arzon narxda, to'lovdan keyin avtomatik yetkazib berish.",
+  alternates: {
+    canonical: "https://obunapro.uz/products"
+  }
+};
 
 export const dynamic = "force-dynamic";
 
@@ -19,11 +29,11 @@ export default async function ProductsPage({ searchParams }: PageProps) {
     ...(searchParams.category ? { category: { equals: searchParams.category } } : {}),
     ...(searchParams.q
       ? {
-          OR: [
-            { name: { contains: searchParams.q } },
-            { description: { contains: searchParams.q } }
-          ]
-        }
+        OR: [
+          { name: { contains: searchParams.q } },
+          { description: { contains: searchParams.q } }
+        ]
+      }
       : {})
   };
 

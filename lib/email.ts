@@ -31,7 +31,7 @@ function getTransporter() {
 }
 
 export async function sendMail(input: MailInput) {
-  const from = process.env.EMAIL_FROM || "no-reply@digitalhub.local";
+  const from = process.env.EMAIL_FROM || "no-reply@obunapro.local";
   const client = getTransporter();
 
   if (!client) {
@@ -89,7 +89,7 @@ export async function sendOrderFailedMail(args: { to: string; orderId: string })
     html: `
       <h2>Buyurtmada muammo</h2>
       <p>Buyurtma ID: <b>${args.orderId}</b></p>
-      <p>Support bilan bog'laning: support@digitalhub.local</p>
+      <p>Support bilan bog'laning: support@obunapro.local</p>
     `
   });
 }

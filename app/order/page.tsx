@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
+
 import OrderLookupForm from "@/components/products/OrderLookupForm";
+
+export const metadata: Metadata = {
+  title: "Buyurtmani tekshirish",
+  description: "Buyurtma ID orqali to'lov va yetkazib berish holatini tekshiring.",
+  robots: { index: false, follow: false }
+};
 
 export default function OrderLookupPage() {
   return (

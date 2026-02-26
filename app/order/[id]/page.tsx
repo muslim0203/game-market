@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -5,6 +6,11 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { prisma } from "@/lib/db";
 import { decryptAccountCredentials } from "@/lib/orders";
+
+export const metadata: Metadata = {
+  title: "Buyurtma holati",
+  robots: { index: false, follow: false }
+};
 
 type PageProps = {
   params: {

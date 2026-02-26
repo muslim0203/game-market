@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import CheckoutPayPanel from "@/components/products/CheckoutPayPanel";
 import { prisma } from "@/lib/db";
+
+export const metadata: Metadata = {
+  title: "To'lov",
+  robots: { index: false, follow: false }
+};
 
 type PageProps = {
   params: {
