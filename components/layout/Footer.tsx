@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 
 const SITE_LOGO = "/links/logo.png";
 
@@ -72,6 +72,15 @@ export default function Footer() {
                 >
                   <Mail className="h-4 w-4 shrink-0" />
                   support@obunapro.uz
+                </a>
+              </li>
+              <li>
+                <a
+                  href="tel:+998970073396"
+                  className="inline-flex items-center gap-2 transition-colors hover:text-foreground"
+                >
+                  <Phone className="h-4 w-4 shrink-0" />
+                  +998 97 007 33 96
                 </a>
               </li>
               <li className="inline-flex items-center gap-2">

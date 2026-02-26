@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Clock, Phone } from "lucide-react";
 
 import Button from "@/components/ui/Button";
 
@@ -46,6 +46,17 @@ export default function ContactPage() {
             <p className="mt-2 text-foreground/80">Telegram orqali ham javob beramiz — @zarifjon0203</p>
           </div>
         </a>
+
+        <div className="glass-card flex gap-4 p-5 sm:col-span-2">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+            <Phone className="h-6 w-6 text-primary" />
+          </div>
+          <div>
+            <h3 className="font-semibold text-foreground">Telefon</h3>
+            <p className="mt-1 text-sm text-muted-foreground">Bizga qo'ng'iroq qiling</p>
+            <p className="mt-2 text-foreground/80">+998 97 007 33 96</p>
+          </div>
+        </div>
 
         <div className="glass-card flex gap-4 p-5 sm:col-span-2">
           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
