@@ -1,6 +1,6 @@
 "use client";
 
-const TELEGRAM_USERNAME = "momiqcha_0";
+const TELEGRAM_USERNAME = "zarifjon0203";
 const TELEGRAM_URL = `https://t.me/${TELEGRAM_USERNAME}`;
 
 function buildTelegramMessage(productName: string, price: string, duration: string): string {
