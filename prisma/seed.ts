@@ -12,7 +12,7 @@ const products = [
     name: "CapCut Pro 1 oy",
     slug: "capcut-pro-1-oy",
     description:
-      "CapCut Pro — professional video editing va barcha premium funksiyalar: royalty-free musiqa, effektlar, AI asistant. 1 oy to'liq access.",
+      "CapCut Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 45_000,
@@ -26,10 +26,10 @@ const products = [
     name: "CapCut Pro 6 oy",
     slug: "capcut-pro-6-oy",
     description:
-      "CapCut Pro 6 oylik obuna. Asl narxdan arzonroq — barcha premium imkoniyatlar, cheksiz eksport, AI vositalar.",
+      "CapCut Pro 6 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
     logo: "/links/Capcut.jpg",
     category: "Video",
-    price: 187_000,
+    price: 169_000,
     originalPrice: 594_000,
     currency: "UZS",
     duration: "6 oy",
