@@ -11,8 +11,7 @@ const products = [
   {
     name: "CapCut Pro 1 oy",
     slug: "capcut-pro-1-oy",
-    description:
-      "CapCut Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: "CapCut Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 45_000,
@@ -25,8 +24,7 @@ const products = [
   {
     name: "CapCut Pro 6 oy",
     slug: "capcut-pro-6-oy",
-    description:
-      "CapCut Pro 6 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: "CapCut Pro 6 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 169_000,
@@ -39,8 +37,7 @@ const products = [
   {
     name: "CapCut Pro 1 yil",
     slug: "capcut-pro-1-yil",
-    description:
-      "CapCut Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: "CapCut Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 300_000,
@@ -51,24 +48,9 @@ const products = [
     stock: 10
   },
   {
-    name: "Canva Pro 1 yil",
-    slug: "canva-pro-1-yil",
-    description:
-      "Canva Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
-    logo: "/links/Canva.jpeg",
-    category: "Dizayn",
-    price: 100_000,
-    originalPrice: 1_500_000,
-    currency: "UZS",
-    duration: "1 yil",
-    isActive: true,
-    stock: 10
-  },
-  {
     name: "ChatGPT Plus 1 oy",
     slug: "chatgpt-plus-1-oy",
-    description:
-      "ChatGPT Plus 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: "ChatGPT Plus 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
     logo: "/links/ChatGPT-Logo.png",
     category: "AI",
     price: 69_000,
@@ -79,30 +61,132 @@ const products = [
     stock: 10
   },
   {
-    name: "Gemini Ultra 1 oy",
-    slug: "gemini-ultra-1-oy",
-    description:
-      "Google Gemini Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    name: "ChatGPT Plus 1 yil",
+    slug: "chatgpt-plus-1-yil",
+    description: "ChatGPT Plus 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    logo: "/links/ChatGPT-Logo.png",
+    category: "AI",
+    price: 420_000,
+    originalPrice: 1_200_000,
+    currency: "UZS",
+    duration: "1 yil",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "ChatGPT Go 1 yil",
+    slug: "chatgpt-go-1-yil",
+    description: "ChatGPT Go 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/ChatGPT-Logo.png",
+    category: "AI",
+    price: 200_000,
+    originalPrice: 500_000,
+    currency: "UZS",
+    duration: "1 yil",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Gemini Pro 1 oy",
+    slug: "gemini-pro-1-oy",
+    description: "Gemini Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
     logo: "/links/Gemini%20Ultra.jpg",
     category: "AI",
     price: 45_000,
-    originalPrice: 375_000,
+    originalPrice: 150_000,
     currency: "UZS",
     duration: "1 oy",
     isActive: true,
     stock: 10
   },
   {
+    name: "Gemini Pro 3 oy",
+    slug: "gemini-pro-3-oy",
+    description: "Gemini Pro 3 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/Gemini%20Ultra.jpg",
+    category: "AI",
+    price: 149_000,
+    originalPrice: 450_000,
+    currency: "UZS",
+    duration: "3 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Gemini Pro 1 yil",
+    slug: "gemini-pro-1-yil",
+    description: "Gemini Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    logo: "/links/Gemini%20Ultra.jpg",
+    category: "AI",
+    price: 299_000,
+    originalPrice: 1_800_000,
+    currency: "UZS",
+    duration: "1 yil",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Adobe Creative Cloud 1 oy",
+    slug: "adobe-creative-cloud-1-oy",
+    description: "Adobe Creative Cloud 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/Adobe.jpg",
+    category: "Dizayn",
+    price: 45_000,
+    originalPrice: 150_000,
+    currency: "UZS",
+    duration: "1 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Adobe Creative Cloud 3 oy",
+    slug: "adobe-creative-cloud-3-oy",
+    description: "Adobe Creative Cloud 3 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/Adobe.jpg",
+    category: "Dizayn",
+    price: 199_000,
+    originalPrice: 450_000,
+    currency: "UZS",
+    duration: "3 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
     name: "Adobe Creative Cloud 4 oy",
     slug: "adobe-creative-cloud-4-oy",
-    description:
-      "Adobe Creative Cloud 4 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: "Adobe Creative Cloud 4 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
     logo: "/links/Adobe.jpg",
     category: "Dizayn",
     price: 240_000,
     originalPrice: 520_000,
     currency: "UZS",
     duration: "4 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Canva Pro 1 oy",
+    slug: "canva-pro-1-oy",
+    description: "Canva Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/Canva.jpeg",
+    category: "Dizayn",
+    price: 45_000,
+    originalPrice: 130_000,
+    currency: "UZS",
+    duration: "1 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Canva Pro 1 yil",
+    slug: "canva-pro-1-yil",
+    description: "Canva Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    logo: "/links/Canva.jpeg",
+    category: "Dizayn",
+    price: 100_000,
+    originalPrice: 1_500_000,
+    currency: "UZS",
+    duration: "1 yil",
     isActive: true,
     stock: 10
   },

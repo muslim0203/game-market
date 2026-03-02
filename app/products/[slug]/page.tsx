@@ -22,7 +22,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: "Mahsulot topilmadi" };
   }
 
-  const description = `${product.name} — ${product.duration} obuna. Narxi: ${new Intl.NumberFormat("uz-UZ").format(product.price)} ${product.currency}. To'lovdan keyin avtomatik yetkazib berish.`;
+  const formattedPrice = product.price.toLocaleString("en-US").replace(/,/g, " ");
+  const displayPrice = product.currency === "UZS" ? `${formattedPrice} so'm` : `${formattedPrice} ${product.currency}`;
+  const description = `${product.name} — ${product.duration} obuna. Narxi: ${displayPrice}. To'lovdan keyin avtomatik yetkazib berish.`;
 
   return {
     title: product.name,
@@ -52,6 +54,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
   if (!product || !product.isActive) {
     notFound();
   }
+
+  const formatPrice = (value: number, currency: string) => {
+    const formatted = value.toLocaleString("en-US").replace(/,/g, " ");
+    return currency === "UZS" ? `${formatted} so'm` : `${formatted} ${currency}`;
+  };
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
@@ -92,11 +99,11 @@ export default async function ProductDetailPage({ params }: PageProps) {
           <p className="text-sm font-medium text-foreground">Narx</p>
           {product.originalPrice != null && product.originalPrice > product.price && (
             <p className="mb-1 text-sm text-foreground/70 line-through">
-              Asl narx: {new Intl.NumberFormat("uz-UZ").format(product.originalPrice)} {product.currency}
+              Asl narx: {formatPrice(product.originalPrice, product.currency)}
             </p>
           )}
           <p className="mb-4 text-3xl font-bold text-primary">
-            {new Intl.NumberFormat("uz-UZ").format(product.price)} {product.currency}
+            {formatPrice(product.price, product.currency)}
           </p>
           <OrderCreateForm
             productId={product.id}

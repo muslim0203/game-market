@@ -33,6 +33,11 @@ export default async function OrderPage({ params }: PageProps) {
 
   const credentials = order.status === "DELIVERED" && order.account ? decryptAccountCredentials(order.account) : null;
 
+  const formatPrice = (value: number, currency: string) => {
+    const formatted = value.toLocaleString("en-US").replace(/,/g, " ");
+    return currency === "UZS" ? `${formatted} so'm` : `${formatted} ${currency}`;
+  };
+
   return (
     <div className="mx-auto max-w-3xl space-y-5">
       <h1 className="text-3xl font-semibold text-foreground">Buyurtma holati</h1>
@@ -45,7 +50,7 @@ export default async function OrderPage({ params }: PageProps) {
 
         <div className="grid gap-2 text-sm text-muted-foreground">
           <p>Mahsulot: {order.product.name}</p>
-          <p>Summa: {new Intl.NumberFormat("uz-UZ").format(order.amount)} {order.currency}</p>
+          <p>Summa: {formatPrice(order.amount, order.currency)}</p>
           <p>To‘lov: {order.paymentMethod || "-"}</p>
           <p>Email: {order.buyerEmail}</p>
           <p>Sana: {new Date(order.createdAt).toLocaleString()}</p>

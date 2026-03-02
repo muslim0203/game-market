@@ -23,7 +23,8 @@ export default function OrderCreateForm({
   productDuration,
   stock
 }: Props) {
-  const priceFormatted = `${new Intl.NumberFormat("uz-UZ").format(productPrice)} ${productCurrency}`;
+  const formattedPrice = productPrice.toLocaleString("en-US").replace(/,/g, " ");
+  const priceFormatted = productCurrency === "UZS" ? `${formattedPrice} so'm` : `${formattedPrice} ${productCurrency}`;
   const message = buildTelegramMessage(productName, priceFormatted, productDuration);
   const telegramLink = `${TELEGRAM_URL}?text=${encodeURIComponent(message)}`;
 

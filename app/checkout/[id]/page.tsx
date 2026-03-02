@@ -39,7 +39,7 @@ export default async function CheckoutPage({ params }: PageProps) {
           <p>Duration: {order.product.duration}</p>
           <p>Email: {order.buyerEmail}</p>
           <p>
-            Amount: {new Intl.NumberFormat("uz-UZ").format(order.amount)} {order.currency}
+            Amount: {order.amount.toLocaleString("en-US").replace(/,/g, " ")} {order.currency === "UZS" ? "so'm" : order.currency}
           </p>
           <p>Status: {order.status}</p>
         </div>
