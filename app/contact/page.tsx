@@ -53,7 +53,7 @@ export default function ContactPage() {
           </div>
           <div>
             <h3 className="font-semibold text-foreground">Telefon</h3>
-            <p className="mt-1 text-sm text-muted-foreground">Bizga qo'ng'iroq qiling</p>
+            <p className="mt-1 text-sm text-muted-foreground">Bizga qo&apos;ng&apos;iroq qiling</p>
             <p className="mt-2 text-foreground/80">+998 97 007 33 96</p>
           </div>
         </div>
