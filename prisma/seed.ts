@@ -323,8 +323,14 @@ Asosiy afzalliklari:
   {
     name: "Google One AI 1 oy",
     slug: "google-one-ai-1-oy",
-    description:
-      "Google One AI — Gemini Advanced, 2 TB saqlash, Google AI xususiyatlari. 1 oylik premium obuna, rasmiy narxdan arzon.",
+    description: `Google One AI Premium — Google'ning eng kuchli sun'iy intellekt xizmatlarini, ulkan bulutli xotirani va eksklyuziv imtiyozlarni bitta paketda taqdim etuvchi premium obuna. 🌟
+
+Asosiy afzalliklari:
+1. Gemini Advanced — Google'ning eng aqlli AI modeli: Murakkab savollar, chuqur tahlil, kreativ yozuv va dasturlash vazifalarida yordam beruvchi eng ilg'or sun'iy intellekt.
+2. 2 TB bulutli xotira (Google Drive): Barcha rasmlar, videolar, hujjatlar va fayllaringizni xavfsiz saqlash. Bu oddiy Google One tarifidan 100 barobar ko'p joy!
+3. Gmail va Google Docs'da AI yordami: Xatlarni AI bilan yozish, hujjatlarni qisqartirish va tarjima qilish — bevosita Google Workspace ichida.
+4. Google Photos'da kengaytirilgan tahlil: Rasmlarni AI yordamida tahrirlash, nojo'ya elementlarni olib tashlash va sifatni oshirish.
+5. Barcha qurilmalarda ishlash: Smartfon, planshet va kompyuterda bir hil muammosiz ishlash imkoniyati.`,
     logo: "/links/Google%20one.jpg",
     category: "AI",
     price: 175_000,
@@ -337,8 +343,14 @@ Asosiy afzalliklari:
   {
     name: "Microsoft 365 Personal 1 yil",
     slug: "microsoft-365-personal-1-yil",
-    description:
-      "Microsoft 365 Personal — shaxsiy hisob (Global). Word, Excel, PowerPoint, Outlook, OneDrive 1 TB, Teams. 1 yillik to'liq obuna, rasmiy narxdan arzon.",
+    description: `Microsoft 365 Personal — ish unumdorligini maksimal darajaga olib chiquvchi dunyodagi eng mashhur ofis dasturlari to'plami. Bir yil davomida barcha premium imkoniyatlardan to'liq foydalaning. 💼
+
+Asosiy afzalliklari:
+1. To'liq ofis dasturlari: Word, Excel, PowerPoint, Outlook, OneNote, Publisher va Access — barchasi bitta obunada.
+2. 1 TB OneDrive bulutli xotira: Barcha fayllaringizni xavfsiz saqlang va istalgan qurilmadan oching. Hech qanday USB yoki tashqi disk kerak emas.
+3. Microsoft Copilot AI yordami: Word hujjatlari yozish, Excel formulalar tuzish va PowerPoint slaydlar yaratishda sun'iy intellekt yordamidan foydalaning.
+4. Bir vaqtda 5 ta qurilmada ishlash: Kompyuter, Mac, planshet va smartfonda bir vaqtda faollashtiring.
+5. Doimiy yangilanishlar: Har doim eng yangi versiyadan foydalaning — qo'shimcha to'lovsiz avtomatik yangilanishlar.`,
     logo: "/links/Microsoft.jpg",
     category: "Ofis",
     price: 150_000,
@@ -351,8 +363,14 @@ Asosiy afzalliklari:
   {
     name: "Windows 11 Pro N Key (Global)",
     slug: "windows-11-pro-n-key-global",
-    description:
-      "Windows 11 Pro N — rasmiy litsenziya kaliti (Global). Media Player siz versiya, bitta kompyuter uchun doimiy faollashtirish. Yetkazib berish: kalit matni.",
+    description: `Windows 11 Pro N — Microsoft tomonidan rasman chiqarilgan global litsenziya kaliti. Bir martalik xarid orqali kompyuteringizni doimiy ravishda faollashtiring va Windows'ning barcha professional imkoniyatlaridan bahramand bo'ling. 🖥️
+
+Asosiy afzalliklari:
+1. Rasmiy Microsoft litsenziyasi: Haqiqiy va qonuniy litsenziya kaliti — Microsoft serverlarida tekshirilgan va tasdiqlangan.
+2. Doimiy faollashtirish: Bir marta faollashtirsangiz, butun umr ishlaydi. Obuna yoki takroriy to'lov talab etilmaydi.
+3. Pro versiya imkoniyatlari: BitLocker shifrlash, Remote Desktop, Hyper-V virtualizatsiya, guruh siyosati (Group Policy) va boshqa korporativ funksiyalar.
+4. Tez va qulay yetkazib berish: Xariddan so'ng kalit matn ko'rinishida darhol yuboriladi — o'rnatish diskini kutishning hojati yo'q.
+5. Windows 11 yangi xususiyatlari: Modernlashtirilgan dizayn, Microsoft Copilot AI yordamchisi, Android ilovalar qo'llab-quvvatlashi va yaxshilangan xavfsizlik tizimi.`,
     logo: "/links/Windows.webp",
     category: "Tizim",
     price: 150_000,
