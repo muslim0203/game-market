@@ -61,6 +61,39 @@ const products = [
     stock: 10
   },
   {
+    name: "ChatGPT Pro 1 oy",
+    slug: "chatgpt-pro-1-oy",
+    description: `ChatGPT Pro — sun’iy intellektdan maksimal darajada foydalanish uchun yaratilgan premium tarif bo‘lib, u Plus va Go tariflariga qaraganda ancha kuchli imkoniyatlar va yuqori limitlarni taqdim etadi. Bu tarif professional foydalanuvchilar, dasturchilar, tadqiqotchilar va kontent yaratuvchilar uchun mo‘ljallangan. 🚀
+
+Asosiy afzalliklari
+
+1. Eng kuchli AI modellari
+Pro foydalanuvchilari eng yangi va eng kuchli sun’iy intellekt modellaridan foydalanish imkoniyatiga ega. Bu murakkab savollar, chuqur tahlil, ilmiy izlanish va dasturlash vazifalarini yanada aniq bajarishga yordam beradi.
+
+2. Juda yuqori yoki deyarli cheksiz limitlar
+Pro tarifida xabar yuborish, fayl yuklash va boshqa funksiyalar bo‘yicha limitlar juda yuqori bo‘ladi. Bu uzoq ishlash yoki katta loyihalarda qulaylik yaratadi.
+
+3. Eng tez ishlash tezligi
+Serverlarda ustuvorlik berilgani sababli Pro foydalanuvchilari javoblarni tezroq oladi va yuklama yuqori bo‘lgan paytda ham barqaror ishlashdan foydalanadi.
+
+4. Kengaytirilgan tadqiqot imkoniyatlari
+Pro tarifida murakkab ma’lumotlarni tahlil qilish, katta hujjatlar bilan ishlash va chuqur tadqiqot olib borish uchun kuchli vositalar mavjud.
+
+5. Rasm va video yaratish imkoniyatlari
+Pro foydalanuvchilari sun’iy intellekt orqali rasm va video yaratishda kengroq imkoniyatlar hamda yuqori limitlardan foydalanishi mumkin.
+
+6. Professional ishlar uchun mos
+Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy ishlar uchun ideal hisoblanadi.`,
+    logo: "/links/ChatGPT-Logo.png",
+    category: "AI",
+    price: 200_000,
+    originalPrice: 2_500_000,
+    currency: "UZS",
+    duration: "1 oy",
+    isActive: true,
+    stock: 10
+  },
+  {
     name: "ChatGPT Plus 1 yil",
     slug: "chatgpt-plus-1-yil",
     description: "ChatGPT Plus 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
