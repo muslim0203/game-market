@@ -11,7 +11,14 @@ const products = [
   {
     name: "CapCut Pro 1 oy",
     slug: "capcut-pro-1-oy",
-    description: "CapCut Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `CapCut Pro — professional darajadagi video tahrirlash uchun eng zo'r vosita bo'lib, kreativ g'oyalaringizni hayotga tatbiq etish imkonini beradi. Ushbu premium tarif orqali barcha cheklovlardan xalos bo'lasiz va ijodingizni yangi bosqichga olib chiqasiz. 🎬
+
+Asosiy afzalliklari:
+1. Premium shablonlar va effektlar: Minglab noyob video effektlar, tranzishenlar va shablonlar.
+2. Yuqori sifatli eksport: Videolaringizni 4K va 60 FPS formatlarida suv belgisisiz (watermark) saqlab oling.
+3. Kengaytirilgan audio asboblar: Ovozni tozalash, shovqinni kamaytirish va minglab musiqalar kutubxonasiga kirish.
+4. Sun'iy intellekt (AI) funksiyalari: Avtomatik subtitrlar, fonni olib tashlash va kadrlarni oson birlashtirish.
+5. Muammosiz ishlash tezligi: Videolarni tezroq render qilish imkoniyati.`,
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 45_000,
@@ -24,7 +31,14 @@ const products = [
   {
     name: "CapCut Pro 6 oy",
     slug: "capcut-pro-6-oy",
-    description: "CapCut Pro 6 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `CapCut Pro — professional darajadagi video tahrirlash uchun eng zo'r vosita bo'lib, kreativ g'oyalaringizni hayotga tatbiq etish imkonini beradi. Ushbu premium tarif orqali barcha cheklovlardan xalos bo'lasiz va ijodingizni yangi bosqichga olib chiqasiz. 🎬
+
+Asosiy afzalliklari:
+1. Premium shablonlar va effektlar: Minglab noyob video effektlar, tranzishenlar va shablonlar.
+2. Yuqori sifatli eksport: Videolaringizni 4K va 60 FPS formatlarida suv belgisisiz (watermark) saqlab oling.
+3. Kengaytirilgan audio asboblar: Ovozni tozalash, shovqinni kamaytirish va minglab musiqalar kutubxonasiga kirish.
+4. Sun'iy intellekt (AI) funksiyalari: Avtomatik subtitrlar, fonni olib tashlash va kadrlarni oson birlashtirish.
+5. Muammosiz ishlash tezligi: Videolarni tezroq render qilish imkoniyati.`,
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 169_000,
@@ -37,7 +51,14 @@ const products = [
   {
     name: "CapCut Pro 1 yil",
     slug: "capcut-pro-1-yil",
-    description: "CapCut Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: `CapCut Pro — professional darajadagi video tahrirlash uchun eng zo'r vosita bo'lib, kreativ g'oyalaringizni hayotga tatbiq etish imkonini beradi. Ushbu premium tarif orqali barcha cheklovlardan xalos bo'lasiz va ijodingizni yangi bosqichga olib chiqasiz. 🎬
+
+Asosiy afzalliklari:
+1. Premium shablonlar va effektlar: Minglab noyob video effektlar, tranzishenlar va shablonlar.
+2. Yuqori sifatli eksport: Videolaringizni 4K va 60 FPS formatlarida suv belgisisiz (watermark) saqlab oling.
+3. Kengaytirilgan audio asboblar: Ovozni tozalash, shovqinni kamaytirish va minglab musiqalar kutubxonasiga kirish.
+4. Sun'iy intellekt (AI) funksiyalari: Avtomatik subtitrlar, fonni olib tashlash va kadrlarni oson birlashtirish.
+5. Muammosiz ishlash tezligi: Videolarni tezroq render qilish imkoniyati.`,
     logo: "/links/Capcut.jpg",
     category: "Video",
     price: 300_000,
@@ -50,7 +71,14 @@ const products = [
   {
     name: "ChatGPT Plus 1 oy",
     slug: "chatgpt-plus-1-oy",
-    description: "ChatGPT Plus 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `ChatGPT Plus — OpenAI tomonidan yaratilgan premium obuna bo'lib, kundalik vazifalarni, dasturlash va matn yaratish jarayonlarini tezlashtirish uchun mo'ljallangan. 💡
+
+Asosiy afzalliklari:
+1. GPT-4 va eng yangi modellar: Oddiy xizmatlardan ko'ra ancha aqlli va aniq javoblar.
+2. Tezkor javob vaqti: Tarmoq yuklamasi yuqori bo'lgan paytlarda ham barqaror va tezkor ulanish.
+3. DALL-E 3 bilan rasm yaratish: O'z g'oyalaringiz asosida bir necha soniya ichida yuqori sifatli vizuallar yarating.
+4. Kengaytirilgan ma'lumotlar tahlili: Eksellar, hujjatlar va katta hajmdagi PDF fayllarni tahlil qiling.
+5. Plaginlar va xizmatlar qo'llab-quvvatlashi: Internetsite-larni qidirish va maxsus sun'iy intellekt vositalaridan foydalanish imkoniyati.`,
     logo: "/links/ChatGPT-Logo.png",
     category: "AI",
     price: 69_000,
@@ -96,7 +124,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "ChatGPT Plus 1 yil",
     slug: "chatgpt-plus-1-yil",
-    description: "ChatGPT Plus 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: `ChatGPT Plus — OpenAI tomonidan yaratilgan premium obuna bo'lib, kundalik vazifalarni, dasturlash va matn yaratish jarayonlarini tezlashtirish uchun mo'ljallangan. 💡
+
+Asosiy afzalliklari:
+1. GPT-4 va eng yangi modellar: Oddiy xizmatlardan ko'ra ancha aqlli va aniq javoblar.
+2. Tezkor javob vaqti: Tarmoq yuklamasi yuqori bo'lgan paytlarda ham barqaror va tezkor ulanish.
+3. DALL-E 3 bilan rasm yaratish: O'z g'oyalaringiz asosida bir necha soniya ichida yuqori sifatli vizuallar yarating.
+4. Kengaytirilgan ma'lumotlar tahlili: Eksellar, hujjatlar va katta hajmdagi PDF fayllarni tahlil qiling.
+5. Plaginlar va xizmatlar qo'llab-quvvatlashi: Internetsite-larni qidirish va maxsus sun'iy intellekt vositalaridan foydalanish imkoniyati.`,
     logo: "/links/ChatGPT-Logo.png",
     category: "AI",
     price: 420_000,
@@ -109,7 +144,13 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "ChatGPT Go 1 yil",
     slug: "chatgpt-go-1-yil",
-    description: "ChatGPT Go 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `ChatGPT Go — kundalik savollar, matn tahrirlash va g'oyalar yaratish uchun mo'ljallangan qulay premium xizmat. Ushbu ta'rif orqali ChatGPT'ning ilg'or imkoniyatlaridan tejamkor tarzda foydalanasiz. 🚀
+
+Asosiy afzalliklari:
+1. Barqaror ulanish: Bepul versiyaga qaraganda har doim ustuvor kirish huquqi va qotmasdan ishlash.
+2. Ishonchli yordamchi: Matnlarni tarjima qilish, maqolalar yozish va ijtimoiy tarmoqlar uchun postlar tayyorlashda yordam.
+3. Arzon va uzoq muddatli: Boshqa ta'riflarga qaraganda ham hamyonbop, ham uzoq muddatli barqaror foydalanish.
+4. Tezkor yechimlar: Har qanday vazifangizni yengillashtirish uchun kundalik ideal assistent.`,
     logo: "/links/ChatGPT-Logo.png",
     category: "AI",
     price: 200_000,
@@ -122,7 +163,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Gemini Pro 1 oy",
     slug: "gemini-pro-1-oy",
-    description: "Gemini Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Gemini Pro — Google tomonidan taqdim etilgan eng ilg'or va aqlli sun'iy intellekt xizmati bo'lib, murakkab masalalarni yechish va chuqur tahliliy ishlarni bajarish uchun mo'ljallangan. 🧠
+
+Asosiy afzalliklari:
+1. Google'ning kuchli modeli: Aniqroq, mantiqiy va tasavvurga boy keng qamrovli javoblar.
+2. Real vaqt ma'lumotlari: Google qidiruv tizimlariga to'g'ridan to'g'ri ulangan holda real vaqtdagi ma'lumotlarni tahlil qilish imkoniyati.
+3. Dasturlashda kuchli assistent: Kod yozish, xatolarni topish va refaktoring kabi vazifalarda professional yordamchi.
+4. Kuchli integratsiya: Google ekotizimi bilan muammosiz ishlash imkoniyati yaratilgan.
+5. Multimodal yondashuv: Matn, video va rasmlarni osonlikcha tahlil qilish.`,
     logo: "/links/Gemini%20Ultra.jpg",
     category: "AI",
     price: 45_000,
@@ -135,7 +183,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Gemini Pro 3 oy",
     slug: "gemini-pro-3-oy",
-    description: "Gemini Pro 3 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Gemini Pro — Google tomonidan taqdim etilgan eng ilg'or va aqlli sun'iy intellekt xizmati bo'lib, murakkab masalalarni yechish va chuqur tahliliy ishlarni bajarish uchun mo'ljallangan. 🧠
+
+Asosiy afzalliklari:
+1. Google'ning kuchli modeli: Aniqroq, mantiqiy va tasavvurga boy keng qamrovli javoblar.
+2. Real vaqt ma'lumotlari: Google qidiruv tizimlariga to'g'ridan to'g'ri ulangan holda real vaqtdagi ma'lumotlarni tahlil qilish imkoniyati.
+3. Dasturlashda kuchli assistent: Kod yozish, xatolarni topish va refaktoring kabi vazifalarda professional yordamchi.
+4. Kuchli integratsiya: Google ekotizimi bilan muammosiz ishlash imkoniyati yaratilgan.
+5. Multimodal yondashuv: Matn, video va rasmlarni osonlikcha tahlil qilish.`,
     logo: "/links/Gemini%20Ultra.jpg",
     category: "AI",
     price: 149_000,
@@ -148,7 +203,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Gemini Pro 1 yil",
     slug: "gemini-pro-1-yil",
-    description: "Gemini Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: `Gemini Pro — Google tomonidan taqdim etilgan eng ilg'or va aqlli sun'iy intellekt xizmati bo'lib, murakkab masalalarni yechish va chuqur tahliliy ishlarni bajarish uchun mo'ljallangan. 🧠
+
+Asosiy afzalliklari:
+1. Google'ning kuchli modeli: Aniqroq, mantiqiy va tasavvurga boy keng qamrovli javoblar.
+2. Real vaqt ma'lumotlari: Google qidiruv tizimlariga to'g'ridan to'g'ri ulangan holda real vaqtdagi ma'lumotlarni tahlil qilish imkoniyati.
+3. Dasturlashda kuchli assistent: Kod yozish, xatolarni topish va refaktoring kabi vazifalarda professional yordamchi.
+4. Kuchli integratsiya: Google ekotizimi bilan muammosiz ishlash imkoniyati yaratilgan.
+5. Multimodal yondashuv: Matn, video va rasmlarni osonlikcha tahlil qilish.`,
     logo: "/links/Gemini%20Ultra.jpg",
     category: "AI",
     price: 299_000,
@@ -161,7 +223,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Adobe Creative Cloud 1 oy",
     slug: "adobe-creative-cloud-1-oy",
-    description: "Adobe Creative Cloud 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Adobe Creative Cloud — barcha ijodkorlar, dizaynerlar va video montajchilar uchun to'liq professional dasturlar majmuasi. Sizning dizayn va kreativ g'oyalaringizni hayotga jozibali tasvirlar orqali olib chiqadi. 🎨
+
+Asosiy afzalliklari:
+1. 20 dan ortiq dasturlar majmuasi: Photoshop, Illustrator, Premiere Pro, After Effects va boshqalar bitta obuna ichida.
+2. AI funksiyalari (Adobe Firefly): Generativ to'ldirish (Generative Fill) orqali rasmlarni va dizaynlarni avtomatik o'zgartirish va kengaytirish.
+3. Bulutli hamkorlik: Loyihalaringizni istalgan qurilmada ochish va boshqalar bilan qulay ulashish uchun keng joy.
+4. Boy kutubxona: Adobe Fonts, yuqori sifatli cho'tkalar (brushes) va tayyor template'lar.
+5. Maksimal sifat: Istalgan platforma uchun professional va eng yuqori sifatdagi vizual kontent yaratish imkoniyati.`,
     logo: "/links/Adobe.jpg",
     category: "Dizayn",
     price: 45_000,
@@ -174,7 +243,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Adobe Creative Cloud 3 oy",
     slug: "adobe-creative-cloud-3-oy",
-    description: "Adobe Creative Cloud 3 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Adobe Creative Cloud — barcha ijodkorlar, dizaynerlar va video montajchilar uchun to'liq professional dasturlar majmuasi. Sizning dizayn va kreativ g'oyalaringizni hayotga jozibali tasvirlar orqali olib chiqadi. 🎨
+
+Asosiy afzalliklari:
+1. 20 dan ortiq dasturlar majmuasi: Photoshop, Illustrator, Premiere Pro, After Effects va boshqalar bitta obuna ichida.
+2. AI funksiyalari (Adobe Firefly): Generativ to'ldirish (Generative Fill) orqali rasmlarni va dizaynlarni avtomatik o'zgartirish va kengaytirish.
+3. Bulutli hamkorlik: Loyihalaringizni istalgan qurilmada ochish va boshqalar bilan qulay ulashish uchun keng joy.
+4. Boy kutubxona: Adobe Fonts, yuqori sifatli cho'tkalar (brushes) va tayyor template'lar.
+5. Maksimal sifat: Istalgan platforma uchun professional va eng yuqori sifatdagi vizual kontent yaratish imkoniyati.`,
     logo: "/links/Adobe.jpg",
     category: "Dizayn",
     price: 199_000,
@@ -187,7 +263,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Adobe Creative Cloud 4 oy",
     slug: "adobe-creative-cloud-4-oy",
-    description: "Adobe Creative Cloud 4 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Hoziroq faollashtirish.",
+    description: `Adobe Creative Cloud — barcha ijodkorlar, dizaynerlar va video montajchilar uchun to'liq professional dasturlar majmuasi. Sizning dizayn va kreativ g'oyalaringizni hayotga jozibali tasvirlar orqali olib chiqadi. 🎨
+
+Asosiy afzalliklari:
+1. 20 dan ortiq dasturlar majmuasi: Photoshop, Illustrator, Premiere Pro, After Effects va boshqalar bitta obuna ichida.
+2. AI funksiyalari (Adobe Firefly): Generativ to'ldirish (Generative Fill) orqali rasmlarni va dizaynlarni avtomatik o'zgartirish va kengaytirish.
+3. Bulutli hamkorlik: Loyihalaringizni istalgan qurilmada ochish va boshqalar bilan qulay ulashish uchun keng joy.
+4. Boy kutubxona: Adobe Fonts, yuqori sifatli cho'tkalar (brushes) va tayyor template'lar.
+5. Maksimal sifat: Istalgan platforma uchun professional va eng yuqori sifatdagi vizual kontent yaratish imkoniyati.`,
     logo: "/links/Adobe.jpg",
     category: "Dizayn",
     price: 240_000,
@@ -200,7 +283,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Canva Pro 1 oy",
     slug: "canva-pro-1-oy",
-    description: "Canva Pro 1 oylik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Canva Pro — jozibador grafik dizayn asarlarini professional bilimsiz ham osongina yaratish imkonini beruvchi onlayn platformaning pullik versiyasi. ✨
+
+Asosiy afzalliklari:
+1. Cheksiz premium resurslar: 100 milliondan ortiq sifatli rasmlar, videolar, grafik elementlarga to'liq va ochiq kirish.
+2. Fonni tezkor o'chirish (Background Remover): Bitta bosish orqali barcha rasmlardagi orqa fonni mukammal tozalash va almashtirish.
+3. Magic Resize funksiyasi: Tayyor dizaynlarni osongina turli platformalar hajmiga moslashtirish.
+4. O'z brend kitobingiz (Brand Kit): Kompaniya rangi, logotipi va shriftlarini kiritib, barqaror uslubni saqlash.
+5. AI orqali yordam (Magic Studio): Sun'iy intellekt orqali elementlar va matnlarni soniyalar ichida professional yaratish.`,
     logo: "/links/Canva.jpeg",
     category: "Dizayn",
     price: 45_000,
@@ -213,7 +303,14 @@ Bu tarif katta loyihalar, biznes, kontent ishlab chiqarish, dasturlash va ilmiy 
   {
     name: "Canva Pro 1 yil",
     slug: "canva-pro-1-yil",
-    description: "Canva Pro 1 yillik premium obuna — arzon narx, xavfsiz aktivatsiya, 24/7 xizmat. Buyurtma berish.",
+    description: `Canva Pro — jozibador grafik dizayn asarlarini professional bilimsiz ham osongina yaratish imkonini beruvchi onlayn platformaning pullik versiyasi. ✨
+
+Asosiy afzalliklari:
+1. Cheksiz premium resurslar: 100 milliondan ortiq sifatli rasmlar, videolar, grafik elementlarga to'liq va ochiq kirish.
+2. Fonni tezkor o'chirish (Background Remover): Bitta bosish orqali barcha rasmlardagi orqa fonni mukammal tozalash va almashtirish.
+3. Magic Resize funksiyasi: Tayyor dizaynlarni osongina turli platformalar hajmiga moslashtirish.
+4. O'z brend kitobingiz (Brand Kit): Kompaniya rangi, logotipi va shriftlarini kiritib, barqaror uslubni saqlash.
+5. AI orqali yordam (Magic Studio): Sun'iy intellekt orqali elementlar va matnlarni soniyalar ichida professional yaratish.`,
     logo: "/links/Canva.jpeg",
     category: "Dizayn",
     price: 100_000,
