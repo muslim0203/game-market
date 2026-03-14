@@ -21,7 +21,7 @@ Asosiy afzalliklari:
 5. Muammosiz ishlash tezligi: Videolarni tezroq render qilish imkoniyati.`,
     logo: "/links/Capcut.jpg",
     category: "Video",
-    price: 45_000,
+    price: 59_000,
     originalPrice: 99_000,
     currency: "UZS",
     duration: "1 oy",
@@ -173,7 +173,7 @@ Asosiy afzalliklari:
 5. Multimodal yondashuv: Matn, video va rasmlarni osonlikcha tahlil qilish.`,
     logo: "/links/Gemini%20Ultra.jpg",
     category: "AI",
-    price: 45_000,
+    price: 69_000,
     originalPrice: 150_000,
     currency: "UZS",
     duration: "1 oy",
@@ -217,6 +217,26 @@ Asosiy afzalliklari:
     originalPrice: 1_800_000,
     currency: "UZS",
     duration: "1 yil",
+    isActive: true,
+    stock: 10
+  },
+  {
+    name: "Gemini Ultra 1 oy",
+    slug: "gemini-ultra-1-oy",
+    description: `Gemini Ultra — Google’ning eng yirik va eng murakkab sun’iy intellekt modeli hisoblangan Gemini 1.5 Pro orqali ishlovchi eng kuchli AI vositasi. Katta hajmdagi ma'lumotlar, kodlash va chuqur mantiqiy vazifalarda eng oliy natijalarga erishish uchun maxsus yaratilgan.
+
+Asosiy afzalliklari:
+1. Eng kuchli mantiq va tahlil qobiliyati: Katta matnlar bazasi bilan ishlash va chuqur g'oyalar/tadqiqotlarni shakllantirish uchun mukammal yechim.
+2. Dasturlash va refaktoringda tengsiz: Katta loyihalarni tahlil qilish, murakkab kod tuzilmalarini tushunish va xatolarni tezkor ushlab qolish kafolati.
+3. Kengaytirilgan kontekst (1 million token): Juda ko'p ma'lumot (video, audio, PDF va butun boshli loyihalar kodbase’lari) bilan ishlash imkoniyati bir vaqtning o'zida amalga oshiriladi.
+4. Aniq va chuqur vizual tahlil: Rasmlar va video izlanishlari bo'yicha eng ilg'or model sifatida e'tirof etilgan xizmat.
+5. Eng qiyin va uzoq savollar uchun: Standart AI larda hal etib bo'lmaydigan g'oyat qiyin masalalarga professionallardek yondashadi.`,
+    logo: "/links/Gemini%20Ultra.jpg",
+    category: "AI",
+    price: 550_000,
+    originalPrice: 800_000,
+    currency: "UZS",
+    duration: "1 oy",
     isActive: true,
     stock: 10
   },

@@ -8,21 +8,28 @@ import { organizationJsonLd, webSiteJsonLd } from "@/lib/jsonld";
 
 export const dynamic = "force-dynamic";
 
-/** Muhim mahsulotlar tartibi: Gemini Ultra → Canva Pro → CapCut → ChatGPT → Adobe */
 const FEATURED_SLUG_ORDER = [
-  "gemini-ultra",
-  "canva-pro",
-  "capcut-pro",
-  "chatgpt-plus",
-  "adobe-creative-cloud"
+  "canva-pro-1-yil",
+  "capcut-pro-1-yil",
+  "chatgpt-pro-1-oy",
+  "adobe-creative-cloud-4-oy",
+  "gemini-pro-1-yil",
+  "grok-supergrok",
+  "n8n-starter",
+  "freepik-premium",
+  "microsoft-365"
 ];
 
 const featuredNames = [
-  "Gemini Ultra",
-  "Canva Pro",
-  "CapCut Pro",
-  "ChatGPT Plus",
-  "Adobe Creative Cloud"
+  "Canva Pro 1 yil",
+  "CapCut Pro 1 yil",
+  "ChatGPT Pro 1 oy",
+  "Adobe Creative Cloud 4 oy",
+  "Gemini Pro 1 yil",
+  "Super Grok 1 oy",
+  "N8N Starter 1 yil",
+  "Freepik Premium 1 yil",
+  "Microsoft 365 Personal 1 yil"
 ];
 
 function sortFeaturedByOrder<T extends { slug: string }>(products: T[]): T[] {
@@ -53,7 +60,7 @@ export default async function HomePage() {
     })
   ]);
 
-  const featured = sortFeaturedByOrder(allActive).slice(0, 8);
+  const featured = sortFeaturedByOrder(allActive).slice(0, 9);
   const categoryList = categories.map((item) => item.category);
   const displayOrdersCount = Math.max(ordersCount, 78);
 

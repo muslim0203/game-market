@@ -32,7 +32,7 @@ export default function ContactPage() {
         </a>
 
         <a
-          href="https://t.me/zarifjon0203"
+          href="https://t.me/momiqcha_0"
           target="_blank"
           rel="noopener noreferrer"
           className="glass-card flex gap-4 p-5 transition-all hover:-translate-y-0.5 hover:shadow-glass"
@@ -43,7 +43,7 @@ export default function ContactPage() {
           <div>
             <h3 className="font-semibold text-foreground">Qo‘llab-quvvatlash</h3>
             <p className="mt-1 text-sm text-muted-foreground">Buyurtma va to‘lov bo‘yicha yordam</p>
-            <p className="mt-2 text-foreground/80">Telegram orqali ham javob beramiz — @zarifjon0203</p>
+            <p className="mt-2 text-foreground/80">Telegram orqali ham javob beramiz — @momiqcha_0</p>
           </div>
         </a>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
           <div>
             <h3 className="font-semibold text-foreground">Telefon</h3>
             <p className="mt-1 text-sm text-muted-foreground">Bizga qo&apos;ng&apos;iroq qiling</p>
-            <p className="mt-2 text-foreground/80">+998 97 007 33 96</p>
+            <p className="mt-2 text-foreground/80">+998 93 834 20 03</p>
           </div>
         </div>
 
