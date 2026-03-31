@@ -515,7 +515,7 @@ Google-ning eng ilg'or texnologiyasi — Gemini Advanced va 2TB xotiraga ega bo'
 📥 Hoziroq obuna bo'ling va ish unumdorligingizni yangi bosqichga olib chiqing!`,
     logo: "/links/Antigravity.png",
     category: "AI",
-    price: 149_000,
+    price: 200_000,
     originalPrice: 375_000,
     currency: "UZS",
     duration: "1 yil",
